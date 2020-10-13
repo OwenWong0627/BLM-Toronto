@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import './index.css';
 import { Button } from './Button';
 
@@ -20,13 +20,15 @@ function Navbar() {
         }
     }
 
+    //Function to prevent the button from appearing in the mobile version of the navbar
+    //after reloading the page
     useEffect(() => {
         showButton();
     }, []);
 
     window.addEventListener('resize', showButton);
     return (
-        <>
+        <Router>
             <nav className="navbar">
                 <div className="navbar-container">
                     {/*title + logo in the navbar*/}
@@ -68,8 +70,8 @@ function Navbar() {
                     {button && <Button buttonStyle='btn--outline'>Find a Business</Button>}
                 </div>
             </nav>
-        </>
+        </Router>
     )
 }
 
-export default Navbar
+export default Navbar;
