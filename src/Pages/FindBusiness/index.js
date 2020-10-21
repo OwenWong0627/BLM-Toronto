@@ -7,17 +7,17 @@ import {
    Marker,
    InfoWindow,
 } from '@react-google-maps/api';
-// import usePlacesAutocomplete, {
-//    getGeocode,
-//    getLatLng,
-// } from "use-places-autocomplete";
-// import {
-//    Combobox,
-//    ComboboxInput,
-//    ComboboxPopover,
-//    ComboboxList,
-//    ComboboxOption,
-// } from "@reach/combobox";
+import usePlacesAutocomplete, {
+   getGeocode,
+   getLatLng,
+} from "use-places-autocomplete";
+import {
+   Combobox,
+   ComboboxInput,
+   ComboboxPopover,
+   ComboboxList,
+   ComboboxOption,
+} from "@reach/combobox";
 import '@reach/combobox/styles.css';
 
 //The map styles is copied from snazzymaps.com
@@ -77,9 +77,19 @@ function getUserLocation(URL) {
 
 function FindBusiness() {
    const { isLoaded, loadError } = useLoadScript({
-      googleMapsApiKey: "INPUT UR OWN KEY!!!!!",
+      googleMapsApiKey: "AIzaSyBqjkJOV2Quq6ZSCyfhzmychz1kGlh_-JQ",
       libraries,
    });
+
+   const mapRef = React.useRef();
+   const onMapLoad = React.useCallback((map) => {
+      mapRef.current = map;
+   }, []);
+
+   const panTo = React.useCallback(({ lat, lng }) => {
+      mapRef.current.panTo({ lat, lng });
+      mapRef.current.setZoom(11);
+   }, []);
 
    if (loadError) return "Error loading maps";
    if (!isLoaded) return "Loading...";
@@ -88,15 +98,97 @@ function FindBusiness() {
       <>
          <div>
             {/* <h1>BLM-Toronto <i className='fas fa-thumbs-up' /></h1> */}
+
+            <Locate panTo={panTo} />
+            <Search panTo={panTo} />
+
             <GoogleMap
                mapContainerStyle={mapContainerStyle}
                zoom={8}
                center={center}
                options={options}
+               onLoad={onMapLoad}
             >
+
             </GoogleMap>
          </div>
       </>
+   );
+}
+
+function Locate({ panTo }) {
+   return (
+      <button
+         className="locate"
+         onClick={() => {
+            panTo({
+               lat: center.lat,
+               lng: center.lng,
+            });
+         }}
+      >
+         <img src="/compass.svg" alt="compass" />
+      </button>
+   );
+}
+
+function Search({ panTo }) {
+   //this is a hook
+   //ready just checks whether the google scripts are all loaded up
+   //value means what the user is currently inputting
+   //suggestions means the suggestions that were returned from the google API
+   //setValue is a function to set the value
+   //clearSuggestion clears all the suggestions
+   const {
+      ready,
+      value,
+      suggestions: { status, data },
+      setValue,
+      clearSuggestions,
+   } = usePlacesAutocomplete({
+      requestOptions: {
+         location: { lat: () => center.lat, lng: () => center.lng },
+         radius: 200000,
+      },
+   });
+
+   return (
+      <div className="search">
+         <Combobox
+            onSelect={async (address) => {
+               //the setvalue keeps the text u inputted in the search box without having to call the api
+               setValue(address, false);
+               clearSuggestions();
+
+               try {
+                  const results = await getGeocode({ address });
+                  const { lat, lng } = await getLatLng(results[0]);
+                  panTo({ lat, lng });
+                  console.log(lat, lng);
+               }
+               catch {
+                  console.log("ERROR");
+               }
+            }}
+         >
+            <ComboboxInput
+               value={value}
+               onChange={(event) => {
+                  setValue(event.target.value);
+               }}
+               disabled={!ready}
+               placeholder="Enter an address"
+            />
+            <ComboboxPopover>
+               <ComboboxList>
+                  {status === "OK" &&
+                     data.map(({ id, description }) => (
+                        <ComboboxOption key={id} value={description} />
+                     ))}
+               </ComboboxList>
+            </ComboboxPopover>
+         </Combobox>
+      </div>
    );
 }
 
@@ -105,3 +197,4 @@ function FindBusiness() {
 //then in that time frame is when the asynchronous IPAPI call is predicted to be completed
 //Then the "center" object will be properly assigned and it can be used to center the rendered map
 export default Delay({ delay: 250 })(FindBusiness);
+//componentWillMount has been renamed, and is not recommended for use. See https://fb.me/react-unsafe-component-lifecycles for details.
