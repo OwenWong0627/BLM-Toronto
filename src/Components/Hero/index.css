@@ -1,0 +1,50 @@
+.hero-container {
+   background-image: url("https://blacklivesmatter.ca/wp-content/uploads/2020/06/GettyImages-482191788-scaled.jpg");
+   background-position: center top;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: local;
+   height: 87.5vh;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   box-shadow: inset 0 0 0 1000px rgba(50, 50, 50, 0.6);
+   object-fit: contain;
+ }
+ 
+ .hero-container > h1 {
+   color: #fff;
+   font-size: 50px;
+   text-align: center;
+ }
+ 
+ .hero-container > p {
+   margin-top: 20px;
+   color: rgba(255, 255, 255, 0.7);
+   font-size: 32px;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+     'Lucida Sans', Arial, sans-serif;
+   text-align: center;
+   max-width: 75vw;
+ }
+ 
+ @media screen and (max-width: 960px) {
+   .hero-container > h1 {
+     font-size: 40px;
+   }
+   .hero-container > p {
+      font-size: 26px;
+    }
+ }
+ 
+ @media screen and (max-width: 768px) {
+   .hero-container > h1 {
+     font-size: 30px;
+   }
+ 
+   .hero-container > p {
+     font-size: 20px;
+   }
+ }
