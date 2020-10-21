@@ -1,0 +1,45 @@
+.stats-container {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+   background-color: rgba(0, 132, 244, 0.05);
+   padding: 75px 10vw;
+}
+.stat-box {
+   text-align: center;
+   margin-top: 25px;
+   margin-bottom: 25px;
+   width: 300px;
+}
+
+.stat-number {
+   font-size: 48px;
+   line-height: 1.25;
+   font-weight: 700;
+   font-family: 'Trebuchet MS';
+   color: rgb(0, 62, 107);
+}
+
+.stat-text {
+   font-size: 24px;
+   line-height: 1.25;
+   font-weight: 600;
+   font-family: 'Trebuchet MS';
+   color: rgb(98, 125, 152);
+}
+
+@media screen and (max-width: 960px) {
+   .stats-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 10vw;
+   }
+   .stat-number {
+      font-size: 36px;
+   }
+   
+   .stat-text {
+      font-size: 20px;
+   }
+}
