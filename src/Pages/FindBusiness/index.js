@@ -96,7 +96,7 @@ function FindBusiness() {
 
    return (
       <>
-         <div>
+         <div className="Map">
             {/* <h1>BLM-Toronto <i className='fas fa-thumbs-up' /></h1> */}
 
             <Locate panTo={panTo} />

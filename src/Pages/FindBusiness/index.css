@@ -9,7 +9,7 @@ body {
  }
 
 /* for if you want to include a title */
-h1 {
+.Map > h1 {
    position: absolute;
    user-select: none;
    top: 1rem;
