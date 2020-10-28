@@ -20,7 +20,7 @@ body {
   padding: 0;
 }
 
-.search {
+.searchbar {
   position: absolute;
   top: 1rem;
   left: 50%;
@@ -30,13 +30,13 @@ body {
   z-index: 10;
 }
 
-.search input {
+.searchbar input {
   padding: 0.5rem;
   font-size: 1.5rem;
   width: 100%;
 }
 
-.locate {
+.centerToUser {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -45,7 +45,7 @@ body {
   z-index: 10;
 }
 
-.locate img {
+.centerToUser img {
   width: 30px;
   cursor: pointer;
 }

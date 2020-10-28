@@ -1,6 +1,5 @@
 import React, { useRef, useCallback, useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 import {
    GoogleMap,
@@ -8,25 +7,15 @@ import {
    Marker,
    InfoWindow,
 } from '@react-google-maps/api';
-import usePlacesAutocomplete, {
-   getGeocode,
-   getLatLng,
-} from "use-places-autocomplete";
-import {
-   Combobox,
-   ComboboxInput,
-   ComboboxPopover,
-   ComboboxList,
-   ComboboxOption,
-} from "@reach/combobox";
-import '@reach/combobox/styles.css';
 
 //The map styles is copied from snazzymaps.com
 import mapStyles from './mapStyles';
-import './index.css';
 import * as storeData from "./stores.json";
-import '../../Components/SidebarFilter/index.css';
-// import SideBarFilter from '../../Components/SidebarFilter';
+import './MapElements.css';
+import './Sidebar.css';
+import Checkbox from '../../Components/Checkbox';
+import Searchbar from './Searchbar';
+import CenterToUser from './CenterToUser';
 
 const libraries = ["places"];
 
@@ -41,7 +30,6 @@ const options = {
 };
 
 let URL = 'http://api.ipapi.com/api/check?access_key=dc3c71b823bbe9c2231225f4eea06429&fields=latitude,longitude';
-
 /**
  * This is function that calls on a the free api from ipapi.com to get the latitude and longitude data
  * from the current user.
@@ -69,7 +57,7 @@ async function getUserLocation(URL) {
 
 function FindBusiness() {
    const { isLoaded, loadError } = useLoadScript({
-      googleMapsApiKey: "false key",
+      googleMapsApiKey: "Key",
       libraries,
    });
 
@@ -84,7 +72,14 @@ function FindBusiness() {
       lng: 0
    });
 
-   // const[selectOne, setSelectOne] = useState(true);
+   useEffect(() => {
+      async function fetchLocationData() {
+         const cntr = await getUserLocation(URL);
+         setCenter(cntr);
+      }
+      fetchLocationData();
+   }, []);
+
    const [checkedItems, setCheckedItems] = useState({
       "Art": true,
       "Education": true,
@@ -101,28 +96,25 @@ function FindBusiness() {
    });
    
    const checkboxes = [
-      {id:0, name: "Art", value: "Art, Artists & Art Galleries", isChecked: true},
-      {id:1, name: "Education", value: "Education, Books & Black Authors", isChecked: true},
-      {id:2, name: "Business", value: "Business, Services & Technology", isChecked: true},
-      {id:3, name: "Health", value: "Black Doctors, Health & Fitness", isChecked: true},
-      {id:4, name: "RealEstate", value: "Real Estate & Home Services", isChecked: true},
-      {id:5, name: "Shopping", value: "Shopping | Buy Black Owned Products", isChecked: true},
-      {id:6, name: "Community", value: "Community & Faith Centers", isChecked: true},
-      {id:7, name: "Hair", value: "Hair, Barbers & Beauty", isChecked: true},
-      {id:8, name: "Media", value: "Black Media, Black Events & Entertainment", isChecked: true},
-      {id:9, name: "Restaurant", value: "Restaurants, Bakeries & Grocery", isChecked: true},
-      {id:10, name: "Finance", value: "Financial & Legal Services", isChecked: true},
-      {id:11, name: "Other", value: "Travel, Auto & Other Services", isChecked: true}
+      {name: "Art", value: "Art, Artists & Art Galleries"},
+      {name: "Education", value: "Education, Books & Black Authors"},
+      {name: "Business", value: "Business, Services & Technology"},
+      {name: "Health", value: "Black Doctors, Health & Fitness"},
+      {name: "RealEstate", value: "Real Estate & Home Services"},
+      {name: "Shopping", value: "Shopping | Buy Black Owned Products"},
+      {name: "Community", value: "Community & Faith Centers"},
+      {name: "Hair", value: "Hair, Barbers & Beauty"},
+      {name: "Media", value: "Black Media, Black Events & Entertainment"},
+      {name: "Restaurant", value: "Restaurants, Bakeries & Grocery"},
+      {name: "Finance", value: "Financial & Legal Services"},
+      {name: "Other", value: "Travel, Auto & Other Services"}
    ];
 
    const handleChange = (event) => {
-      // updating an object instead of a Map
       console.log(event.target);
       console.log(event.target.checked);
       setCheckedItems({...checkedItems, [event.target.name] : event.target.checked });
    }
-
-   const [filterMenu, setfilterMenu] = useState();
 
    const[selectAll, setSelectAll] = useState(true);
    const handleAllChecked = (event) => {
@@ -131,45 +123,61 @@ function FindBusiness() {
       console.log(event.target);
       console.log(checked);
       Object.keys(checkedItems).forEach((key) => { checkedItems[key] = checked });
-      // console.log(selectAll);
-      // modifiedMenu.forEach(option => option.isChecked = !selectAll);
-      // console.log(modifiedMenu);
-      // setfilterMenu(modifiedMenu);
-  }
-
-//    const handleOneChecked = (e) => {
-//       console.log(e);
-//       console.log(e.target);
-//       console.log(e.target.id);
-//       console.log(e.target.checked);
-//       const item = e.target.id;
-//       let modifiedMenu = filterMenu;
-//       console.log(modifiedMenu[item])
-//       console.log(!(filterMenu[item].isChecked))
-//       modifiedMenu[item].isChecked = !(filterMenu[item].isChecked);
-//       console.log(modifiedMenu[item])
-//       setfilterMenu(modifiedMenu);
-//   }
-
-   const Checkbox = ({ type = 'checkbox', id, name, value, checked=true, onChange }) => (
-      <li><label><input type={type} id={id} name={name} checked={checked} onChange={onChange} />{value}</label></li>
-   );
-
-   Checkbox.propTypes = {
-      type: PropTypes.string,
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      onChange: PropTypes.func.isRequired,
    }
+   
+   //This state will be just a base array with all the initial businesses, this state will be checked
+   //everytime a user applies the filter
+   const [allBaseMarkers, setAllBaseMarkers] = useState([]);
 
-   useEffect(() => {
-      async function fetchLocationData() {
-         const cntr = await getUserLocation(URL);
-         setCenter(cntr);
-      }
-      fetchLocationData();
-   }, []);
+   const initializeMarkers = () => {
+      let markerArray = [];
+      storeData.inPersonBusinesses.map(store => markerArray.push({
+         id: store.ID,
+         name: store.FEATURES,
+         type: store.TYPE,
+         latitude: store.LATITUDE,
+         longitude: store.LONGITUDE,
+         address: store.ADDRESS,
+         postalCode: store.POSTAL_CODE,
+         // city: store.CITY,
+         website: store.WEBSITE,
+         description: store.DESCRIPTIONS,
+         contactInfo: store.contactInfo
+      }))
+      //TODO: RENAME DESCRIPTIONS to DESCRIPTION
+      console.log(markerArray);
+      setAllBaseMarkers(markerArray);
+      setAllMarkers(markerArray);
+   }
+   //This useEffect will just initialize the allMarkers and allBaseMarkers States
+   useEffect(initializeMarkers, []);
+
+   //This is the state that will actually be modified when filters are applied
+   const [allMarkers, setAllMarkers] = useState([]);
+   const hideMarkers = () => {
+      let availableCategoryArray = []
+      const availableCategoryObject = checkboxes.filter((option) => {
+         if(checkedItems[option.name]){
+            return option;
+         }
+         return null;
+      });
+      Object.values(availableCategoryObject).forEach((value) => {
+         availableCategoryArray.push(value.value);
+         console.log(value);
+      });
+      console.log(availableCategoryObject);
+      console.log(availableCategoryArray);
+      console.log(allMarkers);
+      const loadNewMarkerSet = allBaseMarkers.filter((business) => {
+         if(availableCategoryArray.includes(business.type)){
+            return business;
+         }
+         return null;
+      });
+      console.log(loadNewMarkerSet);
+      setAllMarkers(loadNewMarkerSet);
+   }
 
    const [selectedStore, setSelectedStore] = useState(null);
 
@@ -198,12 +206,11 @@ function FindBusiness() {
    }, []);
 
    if (loadError) return "Error loading maps";
-   // console.log(isLoaded, center);
    if (!isLoaded || center.lat === 0) return "Loading...";
 
    return (
       <>
-      <div className={sidebar ? 'menu-button invisible' : 'menu-button'} id='menu' onClick={showSidebar}>
+         <div className={sidebar ? 'menu-button invisible' : 'menu-button'} id='menu' onClick={showSidebar}>
             <i className={'fas fa-bars'} />
          </div>
          <div className={sidebar ? 'side-menu active' : 'side-menu'}>
@@ -218,47 +225,34 @@ function FindBusiness() {
                   <h1>Categories</h1>
                </li>
                <li><label><input type='checkbox' checked={selectAll} onChange={handleAllChecked}/>Check/Uncheck All</label></li>
-               {/* <li><label><input type='checkbox' key={filterMenu.id} onClick={handleCheckChieldElement} checked={filterMenu[0].isChecked} value={filterMenu[0].value}/> Art, Artists & Art Galleries</label></li> */}
-               {/* <li><label><input type='checkbox' checked={filterMenu[1].isChecked} onChange={handleOneChecked}/> Education, Books & Black Authors</label></li>
-               <li><label><input type='checkbox' checked={filterMenu[2].isChecked} onChange={handleOneChecked}/> Business, Services & Technology</label></li>
-               <li><label><input type='checkbox' checked={filterMenu[3].isChecked} onChange={handleOneChecked}/> Black Doctors, Health & Fitness</label></li>
-               <li><label><input type='checkbox' checked={filterMenu[4].isChecked} onChange={handleOneChecked}/> Real Estate & Home Services</label></li>
-               <li><label><input type='checkbox' checked={filterMenu[5].isChecked} onChange={handleOneChecked}/> Shopping | Buy Black Owned Products</label></li>
-               <li><label><input type='checkbox' checked={filterMenu[6].isChecked} onChange={handleOneChecked}/> Community & Faith Centers</label></li>
-               <li><label><input type='checkbox' checked={filterMenu[7].isChecked} onChange={handleOneChecked}/> Hair, Barbers & Beauty</label></li>
-               <li><label><input type='checkbox' checked={filterMenu[8].isChecked} onChange={handleOneChecked}/> Black Media, Black Events & Entertainment</label></li>
-               <li><label><input type='checkbox' checked={filterMenu[9].isChecked} onChange={handleOneChecked}/> Restaurants, Bakeries & Grocery</label></li>
-               <li><label><input type='checkbox' checked={filterMenu[10].isChecked} onChange={handleOneChecked}/> Financial & Legal Services</label></li>
-               <li><label><input type='checkbox' checked={filterMenu[11].isChecked} onChange={handleOneChecked}/> Travel, Auto & Other Services</label></li> */}
-               {/* {filterMenu.map(item => (
-                     <Checkbox key={item.name} id={item.id} value={item.value} checked={item.isChecked} onChange={handleOneChecked} />
-               ))} */}
-               {
-               checkboxes.map(item => (
-                 <Checkbox key={item.name} id={item.id} name={item.name} value={item.value} checked={checkedItems[item.name]} onChange={handleChange} />
-                  // <label key={item.key}>
-                  //     {item.name}
-                  //     <Checkbox name={item.name} checked={checkedItems[item.name]} onChange={handleChange} />
-                  // </label>
-                  ))
-               }
+               {checkboxes.map(item => (
+                  <Checkbox
+                     key={item.name}
+                     id={item.id}
+                     name={item.name}
+                     value={item.value}
+                     checked={checkedItems[item.name]}
+                     onChange={handleChange}
+                  />
+               ))}
                <button
                   type="button"
                   className="btn btn-primary btn-sm float-right my-3"
-                  onClick={()=>console.log("haha")}
+                  onClick={hideMarkers}
                >
                   Apply Filter
                </button>
             </ul>
-        </div>
+         </div>
          <div className="Map">
             {/* <h1>BLM-Toronto <i className='fas fa-thumbs-up' /></h1> */}
+            {/* Home Button */}
             <Link to="/">
                <img className='home' src='/HomeButton.svg' alt='Home-Button'></img>
             </Link>
 
-            <Locate panTo={panTo} center={center} />
-            <Search panTo={panTo} center={center} />
+            <CenterToUser panTo={panTo} center={center} />
+            <Searchbar panTo={panTo} center={center} />
 
             <GoogleMap
                mapContainerStyle={mapContainerStyle}
@@ -268,15 +262,19 @@ function FindBusiness() {
                onLoad={onMapLoad}
             >
                {/* Maps Out All the Markers */}
-               {storeData.inPersonBusinesses.map(store => (
+               {allMarkers.map(store => (
                   <Marker
-                     key={store.ID}
+                     key={store.id}
+                     category={store.type}
                      position={{
-                        lat: parseFloat(store.LATITUDE),
-                        lng: parseFloat(store.LONGITUDE)
+                        lat: parseFloat(store.latitude),
+                        lng: parseFloat(store.longitude)
                      }}
                      onClick={() => {
                         setSelectedStore(store);
+                        if(sidebar){
+                           showSidebar();
+                        }
                      }}
                      icon={{
                         url: `/compass.svg`,
@@ -291,97 +289,19 @@ function FindBusiness() {
                         setSelectedStore(null);
                      }}
                      position={{
-                        lat: parseFloat(selectedStore.LATITUDE),
-                        lng: parseFloat(selectedStore.LONGITUDE)
+                        lat: parseFloat(selectedStore.latitude),
+                        lng: parseFloat(selectedStore.longitude)
                      }}
                   >
                      <div>
-                        <h2>{selectedStore.FEATURES}</h2>
-                        <p>{selectedStore.DESCRIPTIONS}</p>
+                        <h2>{selectedStore.name}</h2>
+                        <p>{selectedStore.description}</p>
                      </div>
                   </InfoWindow>
                )}
             </GoogleMap>
          </div>
       </>
-   );
-}
-
-//Center to Button
-function Locate({ panTo, center }) {
-   return (
-      <button
-         className="locate"
-         onClick={() => {
-            panTo({
-               lat: center.lat,
-               lng: center.lng,
-            });
-         }}
-      >
-         <img src="/compass.svg" alt="compass" />
-      </button>
-   );
-}
-
-//Search Bar
-function Search({ panTo, center }) {
-   //this is a hook
-   //ready just checks whether the google scripts are all loaded up
-   //value means what the user is currently inputting
-   //suggestions means the suggestions that were returned from the google API
-   //setValue is a function to set the value
-   //clearSuggestion clears all the suggestions
-   const {
-      ready,
-      value,
-      suggestions: { status, data },
-      setValue,
-      clearSuggestions,
-   } = usePlacesAutocomplete({
-      requestOptions: {
-         location: { lat: () => center.lat, lng: () => center.lng },
-         radius: 200000,
-      },
-   });
-
-   return (
-      <div className="search">
-         <Combobox
-            onSelect={async (address) => {
-               //the setvalue keeps the text u inputted in the search box without having to call the api
-               setValue(address, false);
-               clearSuggestions();
-
-               try {
-                  const results = await getGeocode({ address });
-                  const { lat, lng } = await getLatLng(results[0]);
-                  panTo({ lat, lng });
-                  console.log(lat, lng);
-               }
-               catch {
-                  console.log("ERROR");
-               }
-            }}
-         >
-            <ComboboxInput
-               value={value}
-               onChange={(event) => {
-                  setValue(event.target.value);
-               }}
-               disabled={!ready}
-               placeholder="Enter an address"
-            />
-            <ComboboxPopover>
-               <ComboboxList>
-                  {status === "OK" &&
-                     data.map(({ place_id, description }) => (
-                        <ComboboxOption key={place_id} value={description} />
-                     ))}
-               </ComboboxList>
-            </ComboboxPopover>
-         </Combobox>
-      </div>
    );
 }
 
