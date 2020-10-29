@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './Footer.css';
 import { Link } from 'react-router-dom';
 
 function Footer() {
@@ -9,7 +9,7 @@ function Footer() {
             <div className='social-media-wrap'>
                <div className='footer-logo'>
                   <Link to="/" className="social-logo">
-                     BLM-Toronto <i className='fas fa-thumbs-up' />
+                     BLM-Toronto <img className="footer-logo-image" src='/compass.svg' alt="Footer Logo" />
                   </Link>
                </div>
             </div>

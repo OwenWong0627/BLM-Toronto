@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './index.css';
+import './Navbar.css';
 import { Button } from '../Button';
 
 function Navbar() {
@@ -32,7 +32,7 @@ function Navbar() {
          <div className="navbar-container">
             {/*title + logo in the navbar*/}
             <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-               BLM-Toronto <i className='fas fa-thumbs-up' />
+               BLM-Toronto <img className="navbar-logo-image" src='/compass.svg' alt="Navbar Logo" />
             </Link>
             <div className='menu-icon' onClick={handleClick}>
                <i className={click ? 'fas fa-times' : 'fas fa-bars '} />
@@ -49,11 +49,11 @@ function Navbar() {
                </li>
                <li className='nav-item'>
                   <Link
-                     to="/add-business"
+                     to="/list-business/#"
                      className='nav-links'
                      onClick={closeMobileMenu}
                   >
-                     Add a Business
+                     Virtual Businesses Near Me
                             </Link>
                </li>
                {/* Mobile Find Business Button */}

@@ -2,14 +2,6 @@
   --primary: #fff;
 }
 
-.btn {
-  padding: 8px 15px;
-  border-radius: 2px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
-
 .btn--primary {
   background-color: var(--primary);
   color: #242424;
@@ -19,10 +11,12 @@
 .btn--outline {
   background-color: #00BFFF;
   color: #fff;
-  padding: 8px 15px;
+  margin: 8px 15px;
   border: 1px solid var(--primary);
   border-radius: 7px;
   transition: all 0.3s ease-out;
+  cursor: pointer;
+  outline: none;
 }
 
 .btn--medium {

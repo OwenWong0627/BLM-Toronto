@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './Cards.css';
 import CardItem from '../CardItem';
 
 function Cards() {
@@ -18,8 +18,8 @@ function Cards() {
                   />
                   <CardItem
                      src='http://ctt.trains.com/sitefiles/images/no-preview-available.png'
-                     text='Fill Out This Form to Add a Business to The Database'
-                     label='Form'
+                     text='Check Out This Page to Find Your Local Black-owned Virtual Business'
+                     label='Page'
                      path='/add-business'
                   />
                </ul>
