@@ -4,7 +4,7 @@ import './App.css';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import Home from './Pages/Home';
-import AddBusiness from './Pages/AddBusiness';
+import ListBusiness from './Pages/ListBusiness';
 import FindBusiness from './Pages/FindBusiness';
 
 function App() {
@@ -17,9 +17,9 @@ function App() {
                   <Home />
                   <Footer />
                </Route>
-               <Route exact path="/add-business">
+               <Route exact path="/list-business">
                   <Navbar />
-                  <AddBusiness />
+                  <ListBusiness />
                   <Footer />
                </Route>
                <Route exact path="/find-business">
