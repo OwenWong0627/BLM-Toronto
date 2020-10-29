@@ -56,7 +56,7 @@ async function getUserLocation(URL) {
 
 function FindBusiness() {
    const { isLoaded, loadError } = useLoadScript({
-      googleMapsApiKey: "AIzaSyAAWDuSpDW0GVODYkfJ1dBhMXYLCelJn1U",
+      googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
       libraries,
    });
 
