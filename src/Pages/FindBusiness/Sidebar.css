@@ -12,7 +12,7 @@
   display: none;
 }
 
-#cross {
+.cross {
   color: #e4f6f8;
   margin-left: 19.5rem;
 }
@@ -50,4 +50,13 @@
   text-align: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+}
+
+@media screen and (max-width: 728px) {
+   .side-menu {
+      width: 100vw;
+   }
+   .cross{
+      margin-left: 95vw;
+   }
 }

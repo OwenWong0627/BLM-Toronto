@@ -12,7 +12,7 @@ function CenterToUser({ panTo, center }) {
             });
          }}
       >
-         <img src="/compass.svg" alt="compass" />
+         <img src="/HomeMarker.svg" alt="Home Marker" />
       </button>
    );
 }

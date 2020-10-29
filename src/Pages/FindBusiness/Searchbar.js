@@ -14,7 +14,7 @@ import {
 import '@reach/combobox/styles.css';
 
 //Search Bar
-function Searchbar({ panTo, center }) {
+function Searchbar({ panTo, center, className }) {
    //this is a hook
    //ready just checks whether the google scripts are all loaded up
    //value means what the user is currently inputting
@@ -35,7 +35,7 @@ function Searchbar({ panTo, center }) {
    });
 
    return (
-      <div className="searchbar">
+      <div className={className}>
          <Combobox
             onSelect={async (address) => {
                //the setvalue keeps the text u inputted in the search box without having to call the api

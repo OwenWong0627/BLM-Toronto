@@ -1,6 +1,5 @@
 import React, { useRef, useCallback, useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-
 import {
    GoogleMap,
    useLoadScript,
@@ -10,7 +9,7 @@ import {
 
 //The map styles is copied from snazzymaps.com
 import mapStyles from './mapStyles';
-import * as storeData from "./stores.json";
+import * as businessData from './businesses.json';
 import './MapElements.css';
 import './Sidebar.css';
 import Checkbox from '../../Components/Checkbox';
@@ -29,7 +28,7 @@ const options = {
    zoomControl: true,
 };
 
-let URL = 'http://api.ipapi.com/api/check?access_key=dc3c71b823bbe9c2231225f4eea06429&fields=latitude,longitude';
+const IPAPIURL = 'http://api.ipapi.com/api/check?access_key=dc3c71b823bbe9c2231225f4eea06429&fields=latitude,longitude';
 /**
  * This is function that calls on a the free api from ipapi.com to get the latitude and longitude data
  * from the current user.
@@ -57,7 +56,7 @@ async function getUserLocation(URL) {
 
 function FindBusiness() {
    const { isLoaded, loadError } = useLoadScript({
-      googleMapsApiKey: "Key",
+      googleMapsApiKey: "AIzaSyAAWDuSpDW0GVODYkfJ1dBhMXYLCelJn1U",
       libraries,
    });
 
@@ -74,7 +73,7 @@ function FindBusiness() {
 
    useEffect(() => {
       async function fetchLocationData() {
-         const cntr = await getUserLocation(URL);
+         const cntr = await getUserLocation(IPAPIURL);
          setCenter(cntr);
       }
       fetchLocationData();
@@ -94,29 +93,29 @@ function FindBusiness() {
       "Finance": true,
       "Other": true,
    });
-   
+
    const checkboxes = [
-      {name: "Art", value: "Art, Artists & Art Galleries"},
-      {name: "Education", value: "Education, Books & Black Authors"},
-      {name: "Business", value: "Business, Services & Technology"},
-      {name: "Health", value: "Black Doctors, Health & Fitness"},
-      {name: "RealEstate", value: "Real Estate & Home Services"},
-      {name: "Shopping", value: "Shopping | Buy Black Owned Products"},
-      {name: "Community", value: "Community & Faith Centers"},
-      {name: "Hair", value: "Hair, Barbers & Beauty"},
-      {name: "Media", value: "Black Media, Black Events & Entertainment"},
-      {name: "Restaurant", value: "Restaurants, Bakeries & Grocery"},
-      {name: "Finance", value: "Financial & Legal Services"},
-      {name: "Other", value: "Travel, Auto & Other Services"}
+      { name: "Art", value: "Art, Artists & Art Galleries" },
+      { name: "Education", value: "Education, Books & Black Authors" },
+      { name: "Business", value: "Business, Services & Technology" },
+      { name: "Health", value: "Doctors, Health & Fitness" },
+      { name: "RealEstate", value: "Real Estate & Home Services" },
+      { name: "Shopping", value: "Shopping" },
+      { name: "Community", value: "Community & Faith Centers" },
+      { name: "Hair", value: "Hair, Barbers & Beauty" },
+      { name: "Media", value: "Media, Events & Entertainment" },
+      { name: "Restaurant", value: "Restaurants, Bakeries & Grocery" },
+      { name: "Finance", value: "Financial & Legal Services" },
+      { name: "Other", value: "Travel, Auto & Other Services" }
    ];
 
    const handleChange = (event) => {
       console.log(event.target);
       console.log(event.target.checked);
-      setCheckedItems({...checkedItems, [event.target.name] : event.target.checked });
+      setCheckedItems({ ...checkedItems, [event.target.name]: event.target.checked });
    }
 
-   const[selectAll, setSelectAll] = useState(true);
+   const [selectAll, setSelectAll] = useState(true);
    const handleAllChecked = (event) => {
       let checked = event.target.checked;
       setSelectAll(checked);
@@ -124,30 +123,30 @@ function FindBusiness() {
       console.log(checked);
       Object.keys(checkedItems).forEach((key) => { checkedItems[key] = checked });
    }
-   
    //This state will be just a base array with all the initial businesses, this state will be checked
    //everytime a user applies the filter
    const [allBaseMarkers, setAllBaseMarkers] = useState([]);
 
    const initializeMarkers = () => {
-      let markerArray = [];
-      storeData.inPersonBusinesses.map(store => markerArray.push({
-         id: store.ID,
-         name: store.FEATURES,
-         type: store.TYPE,
-         latitude: store.LATITUDE,
-         longitude: store.LONGITUDE,
-         address: store.ADDRESS,
-         postalCode: store.POSTAL_CODE,
-         // city: store.CITY,
-         website: store.WEBSITE,
-         description: store.DESCRIPTIONS,
-         contactInfo: store.contactInfo
-      }))
+      const res = businessData.inPersonBusinesses.map((business) => {
+         return {
+            id: business.ID,
+            name: business.NAME,
+            type: business.TYPE,
+            latitude: business.LATITUDE,
+            longitude: business.LONGITUDE,
+            address: business.ADDRESS,
+            postalCode: business.POSTAL_CODE,
+            city: business.CITY,
+            website: business.WEBSITE,
+            description: business.DESCRIPTION,
+            contactInfo: business.CONTACT_INFO
+         }
+      })
       //TODO: RENAME DESCRIPTIONS to DESCRIPTION
-      console.log(markerArray);
-      setAllBaseMarkers(markerArray);
-      setAllMarkers(markerArray);
+      console.log(res);
+      setAllBaseMarkers(res);
+      setAllMarkers(res);
    }
    //This useEffect will just initialize the allMarkers and allBaseMarkers States
    useEffect(initializeMarkers, []);
@@ -157,7 +156,7 @@ function FindBusiness() {
    const hideMarkers = () => {
       let availableCategoryArray = []
       const availableCategoryObject = checkboxes.filter((option) => {
-         if(checkedItems[option.name]){
+         if (checkedItems[option.name]) {
             return option;
          }
          return null;
@@ -170,7 +169,7 @@ function FindBusiness() {
       console.log(availableCategoryArray);
       console.log(allMarkers);
       const loadNewMarkerSet = allBaseMarkers.filter((business) => {
-         if(availableCategoryArray.includes(business.type)){
+         if (availableCategoryArray.includes(business.type)) {
             return business;
          }
          return null;
@@ -179,13 +178,13 @@ function FindBusiness() {
       setAllMarkers(loadNewMarkerSet);
    }
 
-   const [selectedStore, setSelectedStore] = useState(null);
+   const [selectedBusiness, setSelectedBusiness] = useState(null);
 
-   //This function listens to if user clicks the escape key, if pressed, the info window will close
+   //This function listens to if user clicks the escape key, ifW pressed, the info window will close
    useEffect(() => {
       const listener = e => {
          if (e.key === "Escape") {
-            setSelectedStore(null);
+            setSelectedBusiness(null);
          }
       };
       window.addEventListener("keydown", listener);
@@ -216,7 +215,7 @@ function FindBusiness() {
          <div className={sidebar ? 'side-menu active' : 'side-menu'}>
             <ul className='side-menu-items'>
                <li className='sidebar-header'>
-                  <div className='menu-button' id='cross' onClick={showSidebar}>
+                  <div className='menu-button cross' onClick={showSidebar}>
                      <i className={'fas fa-times'} />
                   </div>
                </li>
@@ -224,7 +223,7 @@ function FindBusiness() {
                <li>
                   <h1>Categories</h1>
                </li>
-               <li><label><input type='checkbox' checked={selectAll} onChange={handleAllChecked}/>Check/Uncheck All</label></li>
+               <li><label><input type='checkbox' checked={selectAll} onChange={handleAllChecked} />Check/Uncheck All</label></li>
                {checkboxes.map(item => (
                   <Checkbox
                      key={item.name}
@@ -235,14 +234,14 @@ function FindBusiness() {
                      onChange={handleChange}
                   />
                ))}
-               <button
-                  type="button"
-                  className="btn btn-primary btn-sm float-right my-3"
-                  onClick={hideMarkers}
-               >
-                  Apply Filter
-               </button>
             </ul>
+            <button
+               type="button"
+               className="filterButton"
+               onClick={() => { hideMarkers(); showSidebar() }}
+            >
+               Apply Filter
+               </button>
          </div>
          <div className="Map">
             {/* <h1>BLM-Toronto <i className='fas fa-thumbs-up' /></h1> */}
@@ -252,50 +251,71 @@ function FindBusiness() {
             </Link>
 
             <CenterToUser panTo={panTo} center={center} />
-            <Searchbar panTo={panTo} center={center} />
+            <Searchbar panTo={panTo} center={center} className={sidebar ? 'searchbar shifted' : 'searchbar'} />
 
             <GoogleMap
                mapContainerStyle={mapContainerStyle}
-               zoom={8}
+               zoom={9}
                center={center}
                options={options}
                onLoad={onMapLoad}
             >
+               <Marker
+                  animation={window.google.maps.Animation.DROP}
+                  position={{
+                     lat: center.lat,
+                     lng: center.lng
+                  }}
+                  icon={{
+                     url: `/HomeMarker.svg`,
+                     scaledSize: new window.google.maps.Size(50, 50)
+                  }}
+                  onClick={() => panTo({
+                     lat: center.lat,
+                     lng: center.lng,
+                  })}
+               />
                {/* Maps Out All the Markers */}
-               {allMarkers.map(store => (
+               {allMarkers.map(business => (
                   <Marker
-                     key={store.id}
-                     category={store.type}
+                     key={business.id}
+                     category={business.type}
                      position={{
-                        lat: parseFloat(store.latitude),
-                        lng: parseFloat(store.longitude)
+                        lat: parseFloat(business.latitude),
+                        lng: parseFloat(business.longitude)
                      }}
                      onClick={() => {
-                        setSelectedStore(store);
-                        if(sidebar){
+                        setSelectedBusiness(business);
+                        if (sidebar) {
                            showSidebar();
                         }
                      }}
                      icon={{
                         url: `/compass.svg`,
+                        origin: new window.google.maps.Point(0, 0),
+                        anchor: new window.google.maps.Point(12.5, 0),
                         scaledSize: new window.google.maps.Size(25, 25)
                      }}
                   />
                ))}
                {/* Info Window */}
-               {selectedStore && (
+               {selectedBusiness && (
                   <InfoWindow
                      onCloseClick={() => {
-                        setSelectedStore(null);
+                        setSelectedBusiness(null);
                      }}
                      position={{
-                        lat: parseFloat(selectedStore.latitude),
-                        lng: parseFloat(selectedStore.longitude)
+                        lat: parseFloat(selectedBusiness.latitude),
+                        lng: parseFloat(selectedBusiness.longitude)
                      }}
                   >
                      <div>
-                        <h2>{selectedStore.name}</h2>
-                        <p>{selectedStore.description}</p>
+                        <h2>{selectedBusiness.name}</h2>
+                        <h3>{selectedBusiness.city}</h3>
+                        <h3>{selectedBusiness.type}</h3>
+                        <h4>{selectedBusiness.address}, {selectedBusiness.postalCode}</h4>
+                        <p>{selectedBusiness.description}</p>
+                        <a target="_blank" rel="noopener noreferrer" href={selectedBusiness.website}>{selectedBusiness.website}</a>
                      </div>
                   </InfoWindow>
                )}
