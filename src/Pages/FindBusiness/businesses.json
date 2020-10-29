@@ -346,7 +346,7 @@
          "LONGITUDE": "-79.584086",
          "ADDRESS": "150 Skyway Avenue, Unit #3",
          "POSTAL_CODE": "M9W 4Y9",
-         "CITY": "Etobicke, ON",
+         "CITY": "Etobicoke, ON",
          "WEBSITE": "https://gecautocustoms.ca/",
          "DESCRIPTION": "We specialize in all cars, trucks, SUVs in all makes and models. We provide you with the option of Mobile Service. We are now expanding our services to boats.",
          "CONTACT_INFO": "1-647-545-0733\r\n1-416-230-8606\r\nhttps://www.instagram.com/gecautocustoms/\r\ngecautocustoms@gmail.com"
@@ -359,7 +359,7 @@
          "LONGITUDE": "-79.5530296",
          "ADDRESS": "11 Wincott Dr",
          "POSTAL_CODE": "M9R 2R9",
-         "CITY": "Etobicke, ON",
+         "CITY": "Etobicoke, ON",
          "WEBSITE": "https://www.nzuribooks.com/",
          "DESCRIPTION": "I write Afrocentric children's books such as \"Hey! Look At Me\" (a French bilingual pre-school book) & \"Nzingha The Great Warrior of Angola\" (an illustrated novel).",
          "CONTACT_INFO": "416-732-9100\r\nhttps://www.facebook.com/desree.crooks.nzuri.books\r\nhttps://twitter.com/DesreeCrooks28\r\nhttps://plus.google.com/u/0/115656854677393319251\r\nhttps://www.nzuribooks.com/feed/"
@@ -1158,12 +1158,10 @@
    ],
    "allCities": [
       "Ajax, ON",
-      "Angus, ON",
-      "Barrie, ON",
       "Brampton, ON",
       "Burlington, ON",
       "Chatham-Kent, ON",
-      "Etobicke, ON",
+      "Etobicoke, ON",
       "Guelph, ON",
       "Hamilton, ON",
       "Kingston, ON",
