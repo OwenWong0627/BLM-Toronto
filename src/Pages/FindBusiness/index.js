@@ -9,7 +9,7 @@ import {
 
 //The map styles is copied from snazzymaps.com
 import mapStyles from './mapStyles';
-import * as businessData from './businesses.json';
+import * as businessData from '../../businesses.json';
 import './MapElements.css';
 import './Sidebar.css';
 import Checkbox from '../../Components/Checkbox';
