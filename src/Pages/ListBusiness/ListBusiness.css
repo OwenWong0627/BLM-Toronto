@@ -1,0 +1,146 @@
+.title{
+   color: #000;
+   font-family: 'Righteous', cursive;
+   font-size: 65px; font-weight: normal;
+   line-height: 60px;
+   text-transform: uppercase;
+   text-shadow: 2px 2px 0 grey;
+   text-align: center;
+   margin: 7.5vh 2.5vw;
+}
+
+.selectTitle{
+   color : #082567;
+   font-family: 'Righteous', cursive;
+   font-size: 32px; font-weight: normal;
+   margin: 0 0 10px;
+   text-transform: uppercase;
+   text-shadow: 1px 1px 0 grey;
+   text-align: center;
+}
+
+.container ul{
+  list-style-type: none;
+}
+
+.BusinessList {
+  padding: 0; /* Remove padding */
+  margin: 0 4rem; /* Remove margins */
+}
+
+.Business {
+  border: 1px solid #ddd; /* Add a thin border to each list item */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6; /* Add a grey background color */
+  padding: 12px; /* Add some padding */
+}
+
+.Business a{
+   text-decoration: none;
+}
+
+.pagination {
+  width: 100vw;
+  text-align: center;
+  margin: 7.5vh 0;
+}
+
+.pagination li{
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+  text-align: end;
+}
+
+.pagination a:hover {
+  background-color: #00BFFF;
+  color: white;
+  border: 1px solid #00BFFF;
+}
+
+.pagination a.activePage{
+   pointer-events: none;
+   background-color: #00BFFF;
+   color: #fff;
+   border: 1px solid #00BFFF;
+}
+
+/* Only a temporary solution as pointer event only "disables" you being able to click on the element,
+but it can still be accessed by other methods, like using keyboard */
+.button.inactive {
+   pointer-events: none;
+   color: #aaafb4;
+}
+
+select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   -ms-appearance: none;
+   appearance: none;
+   outline: 0;
+   box-shadow: none;
+   border: 0;
+   background: #CDCDCD;
+   background-image: none;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select */
+.select {
+  position: relative;
+  width: 50%;
+  height: 3em;
+  line-height: 3;
+  background: #CDCDCD;
+  overflow: hidden;
+  border-radius: .5em;
+  display: flex;
+  margin: 0 auto 40px auto;
+}
+.select-text{
+   font-size: 25px;
+}
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: #000;
+  size: 100px;
+  cursor: pointer;
+}
+
+select > option{
+   font-size: 20px;
+}
+select > text{
+   font-size: 20px;
+}
+
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #00bfff;
+  color: white;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .4s all ease;
+  -o-transition: .4s all ease;
+  transition: .4s all ease;
+}
+/* Transition */
+.select:hover::after {
+  color: #000;
+}
