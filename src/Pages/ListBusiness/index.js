@@ -4,8 +4,109 @@
 import React, { useState, useEffect } from 'react';
 import * as businessData from '../../businesses.json';
 import Business from '../../Components/Business';
-// import { DistanceMatrix } from '@react-google-maps/api';
+import ScrollToTopOnMount from '../../Components/ScrollToTopOnMount';
 import './ListBusiness.css';
+
+const IPAPIURL = `https://ipinfo.io/json?token=${process.env.REACT_APP_IPINFO_KEY}`;
+
+const allCities = businessData.allCities;
+
+/**
+ * This is function that calls on an IPAPI to extract the latitude and longitude data from the current user
+ * This api will avoid prompting the user to allow the "This app wants to know your location" function
+ * However, it is important to note that IPAPI do not give completely accurate locations
+ *
+ * @async
+ * @param {string} URL - The URL to receive the user's location details from
+ * @return {Promise.<Object>} - The latitude and longitude data from the URL
+ */
+async function getUserLocation(URL) {
+   let response = await fetch(URL);
+   let data = await response.json();
+   console.log(data);
+   return ({
+      lat: parseFloat(data.loc.split(",")[0]),
+      lng: parseFloat(data.loc.split(",")[1])
+   });
+}
+
+/**
+ * This function calculates the nearest city to a location, origin, by searching the cities array and finding the city that has the least distance from the origin
+ * 
+ * @param {Object.<string, number>} origin - An object containing lat and lng keys that has float values
+ * @param {Array.<Object>} cities - An array of city objects that has key for the city name, and a key for city's lat and lng values
+ * @returns {string} - The function returns a string with the nearest city from the user's location
+ */
+export function getNearestCity(origin, cities) {
+   //Linear Search but not really, because it will execute with a complexity of O(n) to find the nearest city
+   let nearestDistance = Number.MAX_VALUE;
+   let nearestCity = cities[0].city;
+   for (let i = 0; i < cities.length; i++) {
+      let distance = getDistanceFromLatLonInM(origin.lat, cities[i].LatLng.lat, origin.lng, cities[i].LatLng.lng);
+      console.log(distance);
+      if (distance < nearestDistance) {
+         nearestDistance = distance;
+         nearestCity = cities[i].city;
+      }
+   }
+   console.log(nearestCity);
+   return nearestCity;
+}
+
+/**
+ * This function uses the haversine formula to try and calculate the distance between two locations based on their latitude and longitude values
+ * This algorithm calculates the straight line distance between the two locations.
+ * 
+ * @param {number} lat1 - The latitude value of the first location
+ * @param {number} lat2 - The latitude value of the second location
+ * @param {number} lon1 - The longitude value of the first location
+ * @param {number} lon2 - The longitude value of the second location
+ * @returns {number} - The distance between the locations in meters
+ */
+export function getDistanceFromLatLonInM(lat1, lat2, lon1, lon2) {
+   let deg2rad = deg => deg * 0.017453293;
+   let a =
+      Math.pow(Math.sin(deg2rad(lat2 - lat1) / 2), 2) +
+      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+      Math.pow(Math.sin(deg2rad(lon2 - lon1) / 2), 2);
+   return 12742000 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+/**
+ * This function sorts an array of objects by alphabetical order from A-Z, it sorts by the name key of each object element
+ * 
+ * @param {Array.<Object>} arrayToBeSorted - The array that will be sorted by alphabetical order
+ * @returns {Array.<Object>} - This function returns an array of objects that is sorted by alphabetical order of the name key from A-Z
+ */
+function sortAlphaAscending(arrayToBeSorted) {
+   //A deep copy of the base array is created
+   const temporaryArray = arrayToBeSorted.slice(0);
+   temporaryArray.sort(function (a, b) {
+      var textA = a.name.toUpperCase();
+      var textB = b.name.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+   });
+   console.log(temporaryArray);
+   return temporaryArray;
+}
+
+/**
+ * This function sorts an array of objects by alphabetical order from Z-A, it sorts by the name key of each object element
+ *
+ * @param {Array.<Object>} arrayToBeSorted - The array that will be sorted by alphabetical order
+ * @returns {Array.<Object>} - This function returns an array of objects that is sorted by alphabetical order of the name key from Z-A
+ */
+function sortAlphaDescending(arrayToBeSorted) {
+   //A deep copy of the base array is created
+   const temporaryArray = arrayToBeSorted.slice(0);
+   temporaryArray.sort(function (a, b) {
+      var textA = a.name.toUpperCase();
+      var textB = b.name.toUpperCase();
+      return (textA < textB) ? 1 : (textA > textB) ? -1 : 0;
+   });
+   console.log(temporaryArray);
+   return temporaryArray;
+}
 
 function ListBusiness() {
    const [baseVirtualBusinesses] = useState(businessData.virtualBusinesses.map((business) => {
@@ -23,131 +124,70 @@ function ListBusiness() {
    const [currentPage, setCurrentPage] = useState(1);
    const [dropdownValue, setDropdownValue] = useState("default");
    const [businessesPerPage] = useState(10);
-   const IPAPIURL = 'http://api.ipapi.com/api/check?access_key=dc3c71b823bbe9c2231225f4eea06429&fields=latitude,longitude';
+   const [center, setCenter] = useState({
+      lat: 0,
+      lng: 0
+   });
 
-   const allCities = businessData.allCities;
    /**
-    * Returns the closest city based on distance from the user's current origin location to a city
-    * 
-    * @param {Object} origin 
-    * @param {Array<String>} cities
-    * @return {Promise<String>}
-    */
-   async function getNearestCity(URL, cities) {
-      let IPresponse = await fetch(URL);
-      let IPdata = await IPresponse.json();
-      console.log(IPdata);
-      const center = {
-         lat: IPdata.latitude,
-         lng: IPdata.longitude
-      }
-      //
-      let citiesString = "";
-      for (let i = 0; i < cities.length - 1; i++) {
-         //Add just the city name
-         console.log(cities[i].split(",")[0]);
-         citiesString = citiesString.concat(cities[i].split(",")[0]);
-         citiesString = citiesString.concat("+ON%7C");
-      }
-      citiesString = citiesString.concat(cities[cities.length - 1].split(",")[0]);
-      console.log(citiesString);
-      //
-      //Change the fetch call to get different results
-      //Change this because it cant handle too many requests
-      let response = await fetch(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?origins=${center.lat},${center.lng}&destinations=${citiesString}+ON&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`);
-
-      let data = await response.json();
-      console.log(data);
-      //
-
-      //Linear Search but not really, because it will execute with a complexity of O(n) to find the closesIn
-      const closestCityData = { fetchedClosestDistance: Number.MAX_VALUE, fetchedClosestCity: data.destination_addresses[0] };
-      console.log(data.rows[0].elements[0].distance.value);
-      for (let i = 0; i < cities.length; i++) {
-         if (data.rows[0].elements[i].distance.value < closestCityData.fetchedClosestDistance) {
-            closestCityData.fetchedClosestDistance = data.rows[0].elements[i].distance.value;
-            closestCityData.fetchedClosestCity = data.destination_addresses[i];
+   * This function calculates the nearest city to the user's location(from the IPAPI) by searching the cities array and finding the city that has the least distance from the user's location
+   * 
+   * @returns {Array.<Object>} - This functions returns a filtered array of all businesses in the nearest city from the user
+   */
+   function getNearestCityBusinesses() {
+      const nearestCity = getNearestCity(center, allCities);
+      console.log(nearestCity);
+      //use nearestCity to create a new updated array
+      const filteredBusinesses = baseVirtualBusinesses.filter((business) => {
+         if (nearestCity === business.city) {
+            return business;
          }
-      }
-      console.log(closestCityData.fetchedClosestDistance);
-      console.log(closestCityData.fetchedClosestCity);
-      //Checks if Toronto is included in the fetched cities that is not the actual city Toronto
-      //ex. "Etobicoke, Toronto, ON" will satisfy the if statement, but "Toronto, ON" will not
-      //The expression in the if statement will remove that extra "Toronto"
-      if (closestCityData.fetchedClosestCity.indexOf("Toronto, ") > 0) {
-         closestCityData.fetchedClosestCity =
-            closestCityData.fetchedClosestCity.substring(0, closestCityData.fetchedClosestCity.indexOf("Toronto, ")) +
-            closestCityData.fetchedClosestCity.substring(closestCityData.fetchedClosestCity.indexOf("Toronto, ") + 9, closestCityData.fetchedClosestCity.length);
-      }
-      console.log(closestCityData.fetchedClosestCity);
-      return closestCityData.fetchedClosestCity.substring(0, closestCityData.fetchedClosestCity.length - 8);
-   }
-
-   function sortAlphaAscending(arrayToBeSorted) {
-      //A deep copy of the base array is created
-      const temporaryArray = arrayToBeSorted.slice(0);
-      temporaryArray.sort(function (a, b) {
-         var textA = a.name.toUpperCase();
-         var textB = b.name.toUpperCase();
-         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+         return null;
       });
-      console.log(temporaryArray);
-      return temporaryArray;
-      // setVirtualBusinesses(temporaryArray);
+      console.log(filteredBusinesses);
+      //alpha sort below
+      const filteredSortedBusinesses = sortAlphaAscending(filteredBusinesses);
+      return filteredSortedBusinesses;
    }
 
-   function sortAlphaDescending(arrayToBeSorted) {
-      //A deep copy of the base array is created
-      const temporaryArray = arrayToBeSorted.slice(0);
-      temporaryArray.sort(function (a, b) {
-         var textA = a.name.toUpperCase();
-         var textB = b.name.toUpperCase();
-         return (textA < textB) ? 1 : (textA > textB) ? -1 : 0;
-      });
-      console.log(temporaryArray);
-      return temporaryArray;
-      // setVirtualBusinesses(temporaryArray);
-   }
-
+   //Initializes the center object when the page loads and initializes the virtualBusinesses array
    useEffect(() => {
-      console.log("HELLO");
-      if (dropdownValue === "nearestCity") {
-         //I could put this entire function into the getNearestCity
-         async function fetchNearestCity() {
-            const nearestCity = await getNearestCity(IPAPIURL, allCities);
-            console.log(nearestCity);
-            //use nearestCity to create a new updated array
-            const filteredBusinesses = baseVirtualBusinesses.filter((business) => {
-               if (nearestCity === business.city) {
-                  return business;
-               }
-               return null;
-            });
-            console.log(filteredBusinesses);
-            //alpha sort below
-            const filteredSortedBusinesses = sortAlphaAscending(filteredBusinesses);
-            console.log(filteredSortedBusinesses);
-            setVirtualBusinesses(filteredSortedBusinesses);
-         }
-         fetchNearestCity();
+      async function fetchCenter() {
+         const center = await getUserLocation(IPAPIURL);
+         console.log(center);
+         setCenter(center);
+      }
+      fetchCenter();
+      setVirtualBusinesses(baseVirtualBusinesses);
+      setCurrentPage(1);
+   }, [baseVirtualBusinesses]);
+
+   /**
+    * This function executes certain functions depending what the target selectBox value is
+    * This function will also reset the pagination page back to the first page
+    * @param {*} event 
+    */
+   const handleChange = (event) => {
+      if (event.target.value === "nearestCity") {
+         setVirtualBusinesses(getNearestCityBusinesses());
          setCurrentPage(1);
       }
-      else if (dropdownValue === "default") {
+      else if (event.target.value === "default") {
          console.log(baseVirtualBusinesses)
          setVirtualBusinesses(baseVirtualBusinesses);
          setCurrentPage(1);
       }
-      else if (dropdownValue === "alphaAscending") {
-         // sortAlphaAscending(baseVirtualBusinesses);
+      else if (event.target.value === "alphaAscending") {
          setVirtualBusinesses(sortAlphaAscending(baseVirtualBusinesses));
          setCurrentPage(1);
       }
-      else if (dropdownValue === "alphaDescending") {
+      else if (event.target.value === "alphaDescending") {
          setVirtualBusinesses(sortAlphaDescending(baseVirtualBusinesses));
          setCurrentPage(1);
-      }// eslint-disable-next-line
-   }, [dropdownValue, baseVirtualBusinesses]);
-   //baseVirtualBusinesses will never change so I thought to just include it
+      }
+      console.log(event.target.value);
+      setDropdownValue(event.target.value);
+   }
 
    //Get Current Businesses(10)
    const indexOfLastBusiness = currentPage * businessesPerPage;
@@ -164,16 +204,13 @@ function ListBusiness() {
       pageNumbers.push(i);
    }
 
-   const handleChange = (event) => {
-      console.log(event.target.value);
-      setDropdownValue(event.target.value);
-   }
-
    return (
       <>
          <div className="container">
-            {/* <button type="button" onClick={console.log(generateAgeGroupArray())} className="filterButton">hahaha</button> */}
+            {/* <button type="button" onClick={() => console.log(getDistanceFromLatLonInM(43.5789, 43.5769843, -79.6583, -79.7745394))} className="filterButton">hahaha</button> */}
+            <ScrollToTopOnMount />
             <h1 className="title">Virtual Businesses Near Me</h1>
+
             <h2 className="selectTitle">Sort</h2>
             <div className="select">
                <select
