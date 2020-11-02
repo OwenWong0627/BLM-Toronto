@@ -6,6 +6,8 @@
   background-color: var(--primary);
   color: #242424;
   border: 1px solid var(--primary);
+  cursor: pointer;
+  outline: none;
 }
 
 .btn--outline {
