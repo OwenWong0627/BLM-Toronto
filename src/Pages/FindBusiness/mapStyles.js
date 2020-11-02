@@ -1,3 +1,4 @@
+//Style is taken from https://snazzymaps.com/style/8097/wy
 export default [
    {
       featureType: "all",

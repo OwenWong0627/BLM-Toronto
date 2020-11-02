@@ -7,14 +7,12 @@ import {
    InfoWindow,
 } from '@react-google-maps/api';
 
-//The map styles is copied from snazzymaps.com
 import mapStyles from './mapStyles';
 import * as businessData from '../../businesses.json';
 import './MapElements.css';
-import './Sidebar.css';
 import Checkbox from '../../Components/Checkbox';
-import Searchbar from './Searchbar';
-import CenterToUser from './CenterToUser';
+import Searchbar from '../../Components/SearchBar/Searchbar';
+import CenterToUser from '../../Components/CenterToUser/CenterToUser';
 
 const libraries = ["places"];
 

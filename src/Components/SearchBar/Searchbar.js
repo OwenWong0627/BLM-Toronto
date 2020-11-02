@@ -15,12 +15,6 @@ import '@reach/combobox/styles.css';
 
 //Search Bar
 function Searchbar({ panTo, center, className }) {
-   //this is a hook
-   //ready just checks whether the google scripts are all loaded up
-   //value means what the user is currently inputting
-   //suggestions means the suggestions that were returned from the google API
-   //setValue is a function to set the value
-   //clearSuggestion clears all the suggestions
    const {
       ready,
       value,
