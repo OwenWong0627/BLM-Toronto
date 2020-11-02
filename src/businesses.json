@@ -92,45 +92,6 @@
          "CONTACT_INFO": "(905) 454-0304"
       },
       {
-         "ID": "21",
-         "NAME": "ALEXIA DALEY",
-         "TYPE": "Real Estate & Home Services",
-         "LATITUDE": "44.320286",
-         "LONGITUDE": "-79.8897714",
-         "ADDRESS": "4 Pine River Road, Unit 8 ",
-         "POSTAL_CODE": "L0M 1B2",
-         "CITY": "Angus, ON",
-         "WEBSITE": "https://www.alexiadaley.ca/",
-         "DESCRIPTION": "As a CENTURY 21® REALTOR®, I will provide you the highest quality service possible. My personal knowledge of the local real estate market is combined with the power of the CENTURY 21 brand – one of the world’s most recognized names in real estate.",
-         "CONTACT_INFO": "(705) 321-2541"
-      },
-      {
-         "ID": "29",
-         "NAME": "FALLS BARBERSHOP",
-         "TYPE": "Hair, Barbers & Beauty",
-         "LATITUDE": "43.0893493",
-         "LONGITUDE": "-79.0937679",
-         "ADDRESS": "5832 Ferry St",
-         "POSTAL_CODE": "L2G 1S9",
-         "CITY": "Niagara Falls, ON",
-         "WEBSITE": "https://fallsbarbershop.ca/",
-         "DESCRIPTION": "As unique as we are as individuals, so are our skills as barbers. We are a multicultural barber shop for all types of hair, from curly hair to straight hair.",
-         "CONTACT_INFO": "https://www.instagram.com/fallsbarbershop/\r\nhttps://www.facebook.com/fallsbarbershop\r\n(289) 271-8353"
-      },
-      {
-         "ID": "30",
-         "NAME": "Berhan Grains",
-         "TYPE": "Restaurants, Bakeries & Grocery",
-         "LATITUDE": "44.3451233",
-         "LONGITUDE": "-79.6774495",
-         "ADDRESS": "56 Churchill Dr",
-         "POSTAL_CODE": "L4N 8Z5",
-         "CITY": "Barrie, ON",
-         "WEBSITE": "https://berhan.co/",
-         "DESCRIPTION": "Here at Berhan Grains, we pride ourselves on providing you with the highest quality Authentic Abyssinica Teff Flours.",
-         "CONTACT_INFO": "1(833) 590-TEFF (8333)\r\ninfo@berhan.co\r\nhttps://www.facebook.com/berhanteff/\r\nhttps://twitter.com/berhanteff\r\nhttps://www.pinterest.ca/berhanteff/boards/\r\nhttps://www.instagram.com/berhanteff/"
-      },
-      {
          "ID": "33",
          "NAME": "RIDDIM FITNESS CENTRE",
          "TYPE": "Doctors, Health & Fitness",
@@ -1154,33 +1115,337 @@
          "WEBSITE": "https://www.thenewjem.com/",
          "DESCRIPTION": "The New Jem provides an old charm with a modern approach to Handbags & More. My love for vintage pieces and retro influence is what led me here.",
          "CONTACT_INFO": "jemillahm@thenewjem.com\r\nhttps://www.instagram.com/thenewjem\r\nhttps://www.pinterest.ca/thenewjem"
+      },
+      {
+         "ID": "108",
+         "NAME": "MAGICAL & SPIRITUAL GIFTS",
+         "TYPE": "Shopping",
+         "CITY": "Burlington, ON",
+         "WEBSITE": "https://www.magicalspiritualgifts.com/",
+         "DESCRIPTION": "We are the primary source for all your spiritual, religious, occult & New Age products, whether you are searching for a candle, oil, herbs, crystal & stones.",
+         "CONTACT_INFO": "226-552-0727\r\nmagicalspiritualgifts@gmail.com\r\nhttps://www.facebook.com/MagicalSpiritualGifts\r\nhttps://www.youtube.com/channel/UCOM-MhkFIb0UFkLi7T2yHXQ?view_as=subscriber\r\nhttps://www.instagram.com/magical.spiritual/"
+      },
+      {
+         "ID": "109",
+         "NAME": "ZA AND ZOEY BOOKS",
+         "TYPE": "Education, Books & Black Authors",
+         "CITY": "Burlington, ON",
+         "WEBSITE": "https://www.zaandzoeybooks.com/",
+         "DESCRIPTION": "Za & Zoey series features 2 main characters who explore tasty recipes as they travel the world from England to China & more. The exciting adventures are endless.",
+         "CONTACT_INFO": "1-289-400-8933 "
+      },
+      {
+         "ID": "110",
+         "NAME": "Lotus & Flame",
+         "TYPE": "Shopping",
+         "CITY": "Etobicoke, ON",
+         "WEBSITE": "http://www.lotusandflame.com/",
+         "DESCRIPTION": "I make hand-made naturally scented soy candles, that are NON-TOXIC with plant based oils.",
+         "CONTACT_INFO": "https://www.instagram.com/lotusandflame/\r\nhttps://www.lotusandflame.com/pages/contact-us"
+      },
+      {
+         "ID": "111",
+         "NAME": "Daej Designs Inc.",
+         "TYPE": "Shopping",
+         "CITY": "Etobicoke, ON",
+         "WEBSITE": "https://www.daejdesigns.com/",
+         "DESCRIPTION": "Daej Designs specializes in hand made furniture, kitchenware and home decor. Sustainably handcrafted items allows one to appreciate all the small details. Eventually becoming heirlooms, these pieces will proudly be passed on from one generation to the next.",
+         "CONTACT_INFO": "https://www.instagram.com/daejdesigns/\r\ninfo@daejdesigns.com"
+      },
+      {
+         "ID": "112",
+         "NAME": "ZEENA KAY DESIGNS",
+         "TYPE": "Shopping",
+         "CITY": "Kitchener, ON",
+         "WEBSITE": "https://shop.zeenakay.com/",
+         "DESCRIPTION": "We are a colourful award-winning fashion label & a great source for custom, authentic African prints & fashion designs for bridal, children & women's wear.",
+         "CONTACT_INFO": "info@zeenakay.com\r\nhttps://www.facebook.com/ZNAKZEENAKAY\r\nhttps://instagram.com/znakdesigns\r\nhttps://shop.zeenakay.com/pages/contact"
+      },
+      {
+         "ID": "113",
+         "NAME": "SMILEY COMFORTS",
+         "TYPE": "Shopping",
+         "CITY": "London, ON",
+         "WEBSITE": "https://smileycomforts.ca/",
+         "DESCRIPTION": "We offer good quality customized apparels. We believe that clothing can be a combination of fashion & art. We bring good energy with our free-spirited designs.",
+         "CONTACT_INFO": "https://www.facebook.com/377492249478766\r\nhttps://twitter.com/SmileyComforts\r\nhttps://www.instagram.com/smileycomforts\r\nhttps://www.pinterest.com/comfortssmiley\r\nhttps://www.youtube.com/channel/UCuQ6AEJKoNivVIHRzropKDw\r\ninfo@smileycomforts.ca"
+      },
+      {
+         "ID": "114",
+         "NAME": "OCEANSPICE CO.",
+         "TYPE": "Restaurants, Bakeries & Grocery",
+         "CITY": "London, ON",
+         "WEBSITE": "https://oceanspice.ca/",
+         "DESCRIPTION": "We are a Caribbean gourmet hot sauce & spice company. We spice up your life! Our products are hand-crafted, small batches, vegan & gluten friendly.",
+         "CONTACT_INFO": "https://www.instagram.com/oceanspice_co\r\nhttps://www.facebook.com/oceanspiceco"
+      },
+      {
+         "ID": "115",
+         "NAME": "Growing up Black in Niagara",
+         "TYPE": "Community & Faith Centers",
+         "CITY": "Niagara Falls, ON",
+         "WEBSITE": "http://www.growingupblackniagara.com/",
+         "DESCRIPTION": "We are an initiative dedicated to creating safe spaces for black youth in the region to connect & share their experiences in order to learn, grow & heal.",
+         "CONTACT_INFO": "https://www.facebook.com/Growing-up-black-in-Niagara-2121028831248035/\r\nhttps://www.instagram.com/growingupblackinniagara/?igshid=1uazsznvta9xv"
+      },
+      {
+         "ID": "116",
+         "NAME": "DYNASTE LIP BALMS",
+         "TYPE": "Hair, Barbers & Beauty",
+         "CITY": "Niagara Falls, ON",
+         "WEBSITE": "https://www.facebook.com/dynaste.lipbalm",
+         "DESCRIPTION": "I’m a 12 year old girl with a vision. I create hydrating lip balms with premium quality Shea Butter & Coconut Oil. There are 12 flavours to choose from!",
+         "CONTACT_INFO": "https://www.facebook.com/dynaste.lipbalm"
+      },
+      {
+         "ID": "117",
+         "NAME": "TruCase",
+         "TYPE": "Media, Events & Entertainment",
+         "CITY": "Oakville, ON",
+         "WEBSITE": "https://unitedmasters.com/trucase",
+         "DESCRIPTION": "Hip Hop, Rap, R&B Entertainment Artiste",
+         "CONTACT_INFO": "https://instagram.com/_trucase_\r\nhttps://www.facebook.com/106663260696886\r\nhttps://soundcloud.com/user-23408941"
+      },
+      {
+         "ID": "118",
+         "NAME": "Mello Scentsations",
+         "TYPE": "Shopping",
+         "CITY": "Oshawa, ON",
+         "WEBSITE": "https://melloscentsations.ca/",
+         "DESCRIPTION": "we make hand pour all natural non toxic chemical free scent soy and shea butter candles and wax melts.",
+         "CONTACT_INFO": "289-804-2200\r\nmelloscentsations@gmail.com"
+      },
+      {
+         "ID": "119",
+         "NAME": "GleamBeauty",
+         "TYPE": "Hair, Barbers & Beauty",
+         "CITY": "Oshawa, ON",
+         "WEBSITE": "http://www.gleambeauty.ca/",
+         "DESCRIPTION": "Creating natural skincare and beauty products by hand, using natural ingredients. Using ingredients you can pronounce to enhance your natural beauty! Be proud of your skin.",
+         "CONTACT_INFO": "https://www.instagram.com/gleam.beauty\r\ninfo@gleambeauty.ca"
+      },
+      {
+         "ID": "120",
+         "NAME": "AZE BOUTIQUE",
+         "TYPE": "Shopping",
+         "CITY": "Ottawa, ON",
+         "WEBSITE": "https://www.etsy.com/ca/shop/AZEBoutique",
+         "DESCRIPTION": "I enjoy making hand-stamped Afrocentric earrings so that customers are able to add personalize phrases that resonate with them.",
+         "CONTACT_INFO": "https://www.etsy.com/ca/messages/new?with_id=117565098&referring_id=15812653&referring_type=shop&recipient_id=117565098\r\nhttps://www.pinterest.ca/etsyazeboutique/\r\nhttps://www.instagram.com/azeboutique24/\r\nhttps://www.facebook.com/AZEBoutique-133093500738182/"
+      },
+      {
+         "ID": "121",
+         "NAME": "AFRICART",
+         "TYPE": "Restaurants, Bakeries & Grocery",
+         "CITY": "Ottawa, ON",
+         "WEBSITE": "https://africart.ca/",
+         "DESCRIPTION": "We are an online African grocery store delivering authentic African food all over Canada.",
+         "CONTACT_INFO": "647-674-1643\r\nsupport@africart.ca"
+      },
+      {
+         "ID": "122",
+         "NAME": "SITI FASHION HOUSE",
+         "TYPE": "Shopping",
+         "CITY": "Pickering, ON",
+         "WEBSITE": "https://www.etsy.com/ca/shop/SitiFashionHouse",
+         "DESCRIPTION": "SITI means LADY in Egyptian. This is a LADY FASHION HOUSE for all QUEENS.\r\n\r\nWe are a African Inspired Fashion Brand. We focused on Exquisite and Unique Head Wraps patterns that would make any women feel like a QUEEN. We have all type of Scarfs , Jewerly, Soaps, Arts from different parts of the world.\r\nOur designs are diverse, different, eye-catching and beautiful !",
+         "CONTACT_INFO": "https://www.facebook.com/sitiscarfs\r\nhttps://www.instagram.com/siti_scarfs/\r\nhttp://www.sitifashionhouse.com/\r\nhttps://www.pinterest.ca/sitiscarfs"
+      },
+      {
+         "ID": "123",
+         "NAME": "HADRIANA LEO",
+         "TYPE": "Financial & Legal Services",
+         "CITY": "Pickering, ON",
+         "WEBSITE": "https://hadrianaleo.com/contact-us/",
+         "DESCRIPTION": "I am your expert guide to customized, optimized finances that help you create an exceptional life. I am your Money Navigator.",
+         "CONTACT_INFO": "https://instagram.com/moneynavigator\r\nhttps://www.linkedin.com/in/hadrianaleo/\r\nhttps://www.facebook.com/moneynavigator/\r\ninfo@hadrianaleo.com\r\n4168565931"
+      },
+      {
+         "ID": "124",
+         "NAME": "Rubbynz Seasoning",
+         "TYPE": "Restaurants, Bakeries & Grocery",
+         "CITY": "Scarborough, ON",
+         "WEBSITE": "https://rubbynz.ca/shop",
+         "DESCRIPTION": "We produce authentic blended seasoning! Providing an easier and healthier way to season your meal.",
+         "CONTACT_INFO": "authenticrubbynz@yahoo.com \r\nhttps://www.instagram.com/rubbynz\r\nhttps://twitter.com/Rubbynz1\r\nhttps://www.facebook.com/1268191719991924"
+      },
+      {
+         "ID": "125",
+         "NAME": "TGDJB",
+         "TYPE": "Media, Events & Entertainment",
+         "CITY": "St. Catharines, ON",
+         "WEBSITE": "https://dajamaicanboymusic.com/",
+         "DESCRIPTION": "I'm a Jamaican artist producing music in genres such as Reggae, Hip Hop, Rap, R&B, Dance Hall & Jamaican Rap.",
+         "CONTACT_INFO": "http://twitter.com/dajamaicanboy\r\nhttp://facebook.com/thegeneralmusic\r\nhttps://www.youtube.com/channel/UCkwrdZkYRnrI50EaoKB4o4A\r\nhttps://soundcloud.com/dajamaicanboy\r\nhttps://instagram.com/thegeneralmusic\r\nhttps://open.spotify.com/artist/1PYF1TcSP1sOGh8L1Wtt0b\r\nhttps://itunes.apple.com/ca/artist/the-general-da-jamaican-boy/324849570\r\nhttps://www.amazon.com/General-Jamaican-Greatest-Hits-Album/dp/B01CF86MTW\r\nhttps://www.linkedin.com/in/dajamaicanboy\r\nhttps://www.datpiff.com/profile/dajamaicanboy\r\nhttps://dajamaicanboy.bandcamp.com/album/the-general-da-jamaican-boy-greatest-hits-album\r\nhttps://audiomack.com/Dajamaicanboy"
+      },
+      {
+         "ID": "126",
+         "NAME": "Nayams boutique",
+         "TYPE": "Shopping",
+         "CITY": "Vaughan, ON",
+         "WEBSITE": "https://nayamsboutique.com/",
+         "DESCRIPTION": "modern inspire African clothing",
+         "CONTACT_INFO": "Nayamsboutique@gmail.com\r\nhttps://www.instagram.com/nayamsboutique/\r\nhttps://www.facebook.com/Nayamsboutique-106243890942416/\r\n"
+      },
+      {
+         "ID": "127",
+         "NAME": "YTAA",
+         "TYPE": "Shopping",
+         "CITY": "Vaughan, ON",
+         "WEBSITE": "https://ytaa.ca/",
+         "DESCRIPTION": "A female clothing and perfume fast fashion brand with trending patterns",
+         "CONTACT_INFO": "https://www.facebook.com/officialytaa/\r\nhttps://instagram.com/ytaa_fashion"
+      },
+      {
+         "ID": "128",
+         "NAME": "DARYL TOWNSEND",
+         "TYPE": "Doctors, Health & Fitness",
+         "CITY": "Windsor, ON",
+         "WEBSITE": "https://www.instagram.com/dtownsend36/",
+         "DESCRIPTION": "Have fitness goals? I can help you reach them. Now offering private, semi private and group training for all fitness levels. Train with a professional athlete!",
+         "CONTACT_INFO": "https://www.instagram.com/dtownsend36/"
       }
    ],
    "allCities": [
-      "Ajax, ON",
-      "Brampton, ON",
-      "Burlington, ON",
-      "Chatham-Kent, ON",
-      "Etobicoke, ON",
-      "Guelph, ON",
-      "Hamilton, ON",
-      "Kingston, ON",
-      "Kitchener, ON",
-      "London, ON",
-      "Markham, ON",
-      "Mississauga, ON",
-      "Niagara Falls, ON",
-      "North York, ON",
-      "Oakville, ON",
-      "Oshawa, ON",
-      "Ottawa, ON",
-      "Pickering, ON",
-      "Scarborough, ON",
-      "St. Catharines, ON",
-      "Thunder Bay, ON",
-      "Toronto, ON",
-      "Vaughan, ON",
-      "Whitby, ON",
-      "Windsor, ON"
+      {
+         "city": "Ajax, ON",
+         "LatLng": {
+            "lat": 43.8688278,
+            "lng": -79.0988097
+         }
+      },
+      {
+         "city": "Brampton, ON",
+         "LatLng": {
+            "lat": 43.7248485,
+            "lng": -79.8996297
+         }
+      },
+      {
+         "city": "Burlington, ON",
+         "LatLng": {
+            "lat": 43.38117,
+            "lng": -79.9800054
+         }
+      },
+      {
+         "city": "Etobicoke, ON",
+         "LatLng": {
+            "lat": 43.6723023,
+            "lng": -79.6928962
+         }
+      },
+      {
+         "city": "Hamilton, ON",
+         "LatLng": {
+            "lat": 43.2604685,
+            "lng": -80.213341
+         }
+      },
+      {
+         "city": "Kitchener, ON",
+         "LatLng": {
+            "lat": 43.4303489,
+            "lng": -80.6164009
+         }
+      },
+      {
+         "city": "London, ON",
+         "LatLng": {
+            "lat": 42.9487956,
+            "lng": -81.3887059
+         }
+      },
+      {
+         "city": "Markham, ON",
+         "LatLng": {
+            "lat": 43.8806535,
+            "lng": -79.4396243
+         }
+      },
+      {
+         "city": "Mississauga, ON",
+         "LatLng": {
+            "lat": 43.5769843,
+            "lng": -79.7745394
+         }
+      },
+      {
+         "city": "Niagara Falls, ON",
+         "LatLng": {
+            "lat": 43.0538471,
+            "lng": -79.2281205
+         }
+      },
+      {
+         "city": "North York, ON",
+         "LatLng": {
+            "lat": 43.7540725,
+            "lng": -79.5820843
+         }
+      },
+      {
+         "city": "Oakville, ON",
+         "LatLng": {
+            "lat": 43.7540725,
+            "lng": -79.7644673
+         }
+      },
+      {
+         "city": "Oshawa, ON",
+         "LatLng": {
+            "lat": 43.9482713,
+            "lng": -79.0184368
+         }
+      },
+      {
+         "city": "Ottawa, ON",
+         "LatLng": {
+            "lat": 45.248786,
+            "lng": -76.3607137
+         }
+      },
+      {
+         "city": "Pickering, ON",
+         "LatLng": {
+            "lat": 43.7653628,
+            "lng": -79.3566435
+         }
+      },
+      {
+         "city": "Scarborough, ON",
+         "LatLng": {
+            "lat": 43.7632138,
+            "lng": -79.3688206
+         }
+      },
+      {
+         "city": "St. Catharines, ON",
+         "LatLng": {
+            "lat": 43.18124,
+            "lng": -79.3892859
+         }
+      },
+      {
+         "city": "Toronto, ON",
+         "LatLng": {
+            "lat": 43.6826999,
+            "lng": -79.5259288
+         }
+      },
+      {
+         "city": "Vaughan, ON",
+         "LatLng": {
+            "lat": 43.8369994,
+            "lng": -79.7060268
+         }
+      },
+      {
+         "city": "Windsor, ON",
+         "LatLng": {
+            "lat": 42.2949797,
+            "lng": -83.0729224
+         }
+      }
    ]
 }
