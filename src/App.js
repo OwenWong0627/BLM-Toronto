@@ -6,6 +6,7 @@ import Footer from './Components/Footer';
 import Home from './Pages/Home';
 import ListBusiness from './Pages/ListBusiness';
 import FindBusiness from './Pages/FindBusiness';
+import ScrollToTopOnMount from './Components/ScrollToTopOnMount';
 
 function App() {
    return (
@@ -13,11 +14,13 @@ function App() {
          <Router>
             <Switch>
                <Route exact path="/">
+                  <ScrollToTopOnMount />
                   <Navbar />
                   <Home />
                   <Footer />
                </Route>
                <Route exact path="/list-business">
+                  <ScrollToTopOnMount />
                   <Navbar />
                   <ListBusiness />
                   <Footer />
