@@ -8,18 +8,6 @@ body {
   font-size: 18px;
 }
 
-/* for if you want to include a title */
-.Map > h1 {
-  position: absolute;
-  user-select: none;
-  top: 1rem;
-  left: 1rem;
-  color: #281414;
-  z-index: 10;
-  margin: 0;
-  padding: 0;
-}
-
 .searchbar {
   position: absolute;
   top: 1rem;
@@ -57,8 +45,8 @@ body {
 }
 
 .home {
-  position: absolute;
-  bottom: 1.5rem;
+  position: fixed;
+  bottom: 4%;
   right: 3.5rem;
   background: none;
   border: none;
@@ -148,12 +136,6 @@ body {
    }
 }
 
-@media screen and (max-width: 728px) {
-   .filterButton{
-      width: 70vw;
-   }
-}
-
 /* SIDEBAR */
 .menu-button {
   display: flex;
@@ -209,11 +191,40 @@ body {
     "Lucida Sans", Arial, sans-serif;
 }
 
+.checkAll {
+   font-size: 25px;
+   display: inline-block;
+}
+
 @media screen and (max-width: 728px) {
-   .side-menu {
+   .filterButton{
+      width: 70vw;
+   }
+   .side-menu.active {
       width: 100vw;
    }
    .cross{
-      margin-left: 95vw;
+      margin-left: 90vw;
+   }
+   .side-menu{
+      left: -150%;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .searchbar{
+      max-width: 200px;
+   }
+}
+
+@media screen and (max-width: 350px) {
+   .searchbar{
+      max-width: 150px;
+   }
+}
+
+@media screen and (min-height: 960px) {
+   .home {
+      bottom: 2.5%;
    }
 }
