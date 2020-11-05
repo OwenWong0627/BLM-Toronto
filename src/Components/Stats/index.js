@@ -1,9 +1,13 @@
 import React from 'react';
 import './Stats.css';
 
+/**
+ * This component represents the Stats component under the Hero Component and above the Card Component
+ * This component is completely static and only contains some text
+ */
 function Stats() {
    return (
-      <div className="stats-container">
+      <div data-testid="stats" className="stats-container">
          <div className="stat-box">
             <h2 className="stat-number">100+</h2>
             <h2 className="stat-text">Businesses Included</h2>

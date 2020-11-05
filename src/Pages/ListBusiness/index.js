@@ -4,8 +4,8 @@
 import React, { useState, useEffect } from 'react';
 import * as businessData from '../../businesses.json';
 import Business from '../../Components/Business';
-import ScrollToTopOnMount from '../../Components/ScrollToTopOnMount';
 import './ListBusiness.css';
+import ScrollToTopOnMount from '../../Components/ScrollToTopOnMount';
 
 const IPAPIURL = `https://ipinfo.io/json?token=${process.env.REACT_APP_IPINFO_KEY}`;
 
@@ -39,6 +39,12 @@ async function getUserLocation(URL) {
  */
 export function getNearestCity(origin, cities) {
    //Linear Search but not really, because it will execute with a complexity of O(n) to find the nearest city
+   for (let i = 0; i < cities.length; i++) {
+      if (typeof (cities[i].LatLng.lat) !== "number" || typeof (cities[i].LatLng.lng) !== "number") {
+         console.log('The lat/lng must be numbers');
+         return null;
+      }
+   }
    let nearestDistance = Number.MAX_VALUE;
    let nearestCity = cities[0].city;
    for (let i = 0; i < cities.length; i++) {
@@ -64,12 +70,20 @@ export function getNearestCity(origin, cities) {
  * @returns {number} - The distance between the locations in meters
  */
 export function getDistanceFromLatLonInM(lat1, lat2, lon1, lon2) {
+   if (typeof (lat1) !== "number" || typeof (lat2) !== "number" || typeof (lon1) !== "number" || typeof (lon2) !== "number") {
+      console.log('The lat/lng must be numbers');
+      return null;
+   }
    let deg2rad = deg => deg * 0.017453293;
    let a =
       Math.pow(Math.sin(deg2rad(lat2 - lat1) / 2), 2) +
       Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
       Math.pow(Math.sin(deg2rad(lon2 - lon1) / 2), 2);
-   return 12742000 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+   let distance = 12742000 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+   if (distance < 20000000 && distance >= 0) {
+      return distance;
+   }
+   return null;
 }
 
 /**
@@ -78,9 +92,15 @@ export function getDistanceFromLatLonInM(lat1, lat2, lon1, lon2) {
  * @param {Array.<Object>} arrayToBeSorted - The array that will be sorted by alphabetical order
  * @returns {Array.<Object>} - This function returns an array of objects that is sorted by alphabetical order of the name key from A-Z
  */
-function sortAlphaAscending(arrayToBeSorted) {
+export function sortAlphaAscending(arrayToBeSorted) {
    //A deep copy of the base array is created
    const temporaryArray = arrayToBeSorted.slice(0);
+   for (let i = 0; i < temporaryArray.length; i++) {
+      if (typeof (temporaryArray[i].name) !== "string") {
+         console.log('sortAlphaAscending must only accept array of objects where the name object is a string')
+         return null;
+      }
+   }
    temporaryArray.sort(function (a, b) {
       var textA = a.name.toUpperCase();
       var textB = b.name.toUpperCase();
@@ -96,9 +116,15 @@ function sortAlphaAscending(arrayToBeSorted) {
  * @param {Array.<Object>} arrayToBeSorted - The array that will be sorted by alphabetical order
  * @returns {Array.<Object>} - This function returns an array of objects that is sorted by alphabetical order of the name key from Z-A
  */
-function sortAlphaDescending(arrayToBeSorted) {
+export function sortAlphaDescending(arrayToBeSorted) {
    //A deep copy of the base array is created
    const temporaryArray = arrayToBeSorted.slice(0);
+   for (let i = 0; i < temporaryArray.length; i++) {
+      if (typeof (temporaryArray[i].name) !== "string") {
+         console.log('sortAlphaDescending must only accept array of objects where the name object is a string')
+         return null;
+      }
+   }
    temporaryArray.sort(function (a, b) {
       var textA = a.name.toUpperCase();
       var textB = b.name.toUpperCase();
@@ -108,6 +134,9 @@ function sortAlphaDescending(arrayToBeSorted) {
    return temporaryArray;
 }
 
+/**
+ * This component represents the list
+ */
 function ListBusiness() {
    const [baseVirtualBusinesses] = useState(businessData.virtualBusinesses.map((business) => {
       return {
@@ -165,7 +194,7 @@ function ListBusiness() {
    /**
     * This function executes certain functions depending what the target selectBox value is
     * This function will also reset the pagination page back to the first page
-    * @param {*} event 
+    * @param {EventObject} event 
     */
    const handleChange = (event) => {
       if (event.target.value === "nearestCity") {
@@ -205,14 +234,13 @@ function ListBusiness() {
    }
 
    return (
-      <>
+      <div>
+         <ScrollToTopOnMount />
          <div className="container">
-            {/* <button type="button" onClick={() => console.log(getDistanceFromLatLonInM(43.5789, 43.5769843, -79.6583, -79.7745394))} className="filterButton">hahaha</button> */}
-            <ScrollToTopOnMount />
             <h1 className="title">Virtual Businesses Near Me</h1>
 
             <h2 className="selectTitle">Sort</h2>
-            <div className="select">
+            <div data-testid="sortBy-menu" className="select">
                <select
                   value={dropdownValue}
                   onChange={handleChange}
@@ -224,12 +252,12 @@ function ListBusiness() {
                   <option value="nearestCity">Nearest City</option>
                </select>
             </div>
-            {/* SortBy Menu will be inserted here */}
             <Business businesses={currentBusinesses} />
-            <div className="pagination">
+            <div data-testid="pagination" className="pagination">
                <ul>
                   <li>
                      <a
+                        data-testid="pagination-previous"
                         className={(currentPage > 1) ? 'button' : 'button inactive'}
                         onClick={paginateDecrement}
                         href="/list-business/#"
@@ -249,6 +277,7 @@ function ListBusiness() {
                   ))}
                   <li>
                      <a
+                        data-testid="pagination-next"
                         className={(currentPage < Math.ceil(virtualBusinesses.length / businessesPerPage)) ? 'button' : 'button inactive'}
                         onClick={paginateIncrement}
                         href="/list-business/#"
@@ -259,7 +288,7 @@ function ListBusiness() {
                </ul>
             </div>
          </div>
-      </>
+      </div>
    )
 }
 
