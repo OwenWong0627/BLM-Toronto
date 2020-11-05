@@ -1,5 +1,5 @@
 //TODO: Currently, we are doing front-end pagination which will call all of the data and display
-//[number] of businesses at a time. In the future, we wouls make it scalable for a lot of businesses
+//[number] of businesses at a time. In the future, we would make it scalable for a lot of businesses
 //in a database by calling the database and displaying the called [number] businesses.
 import React, { useState, useEffect } from 'react';
 import * as businessData from '../../businesses.json';
