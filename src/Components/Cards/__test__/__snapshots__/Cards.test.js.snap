@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="cards"
+  data-testid="cards"
+>
+  <h1>
+    Check Out The App Features & Functionalities!
+  </h1>
+  <div
+    className="cards__container"
+  >
+    <div
+      className="cards__wrapper"
+    >
+      <ul
+        className="cards__items"
+        data-testid="card-list"
+      >
+        <li
+          className="cards__item"
+        >
+          <a
+            className="cards__item__link"
+            data-testid="card-item"
+            href="/find-business"
+            onClick={[Function]}
+          >
+            <figure
+              className="cards__item__pic-wrap"
+              data-category="Map"
+              data-testid="card-item-label"
+            >
+              <img
+                alt="Page Previews"
+                className="cards__item__img"
+                data-testid="card-item-img"
+                src="/Map_Preview.png"
+              />
+            </figure>
+            <div
+              className="cards__item__info"
+            >
+              <h2
+                className="cards__item__text"
+              >
+                Explore The Map to Find Your Local Black-owned Business
+              </h2>
+            </div>
+          </a>
+        </li>
+        <li
+          className="cards__item"
+        >
+          <a
+            className="cards__item__link"
+            data-testid="card-item"
+            href="/list-business/"
+            onClick={[Function]}
+          >
+            <figure
+              className="cards__item__pic-wrap"
+              data-category="Pagination"
+              data-testid="card-item-label"
+            >
+              <img
+                alt="Page Previews"
+                className="cards__item__img"
+                data-testid="card-item-img"
+                src="/List_Business_Preview.png"
+              />
+            </figure>
+            <div
+              className="cards__item__info"
+            >
+              <h2
+                className="cards__item__text"
+              >
+                Check Out This Page to Find Your Local Black-owned Virtual Business
+              </h2>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

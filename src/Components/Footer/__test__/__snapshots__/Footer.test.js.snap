@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="footer-container"
+>
+  <div
+    className="social-media-wrap"
+  >
+    <a
+      className="social-logo"
+      data-testid="footer-logo"
+      href="/"
+      onClick={[Function]}
+    >
+      BLM-Toronto 
+      <img
+        alt="Footer Logo"
+        className="footer-logo-image"
+        src="/BLM-Toronto-Logo.svg"
+      />
+    </a>
+  </div>
+  <div
+    className="social-media-wrap"
+  >
+    <a
+      aria-label="Github"
+      className="social-logo"
+      data-testid="github-link"
+      href="https://github.com/OwenWong0627/BLM-Toronto"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="Github Logo"
+        className="github-icon"
+        data-testid="github-icon"
+        src="/github-logo.svg"
+      />
+    </a>
+  </div>
+  <div
+    className="social-media-wrap"
+  >
+    <small
+      className="website-rights"
+      data-testid="website-rights"
+    >
+      © Owen Wong & Leo Wang. All rights reserved
+    </small>
+  </div>
+</div>
+`;

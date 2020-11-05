@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div>
+  <div
+    data-reach-combobox=""
+    data-testid="search-bar"
+  >
+    <input
+      aria-autocomplete="both"
+      aria-controls="listbox--3"
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      data-reach-combobox-input=""
+      data-testid="input"
+      disabled={true}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Enter an address"
+      role="combobox"
+      value=""
+    />
+    <span />
+  </div>
+</div>
+`;

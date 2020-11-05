@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<a
+  data-testid="button-link"
+  href="/find-business"
+  onClick={[Function]}
+>
+  <button
+    className="btn btn--outline btn--medium"
+    data-testid="button"
+    type="button"
+  >
+    CLICK ME PLEASE
+  </button>
+</a>
+`;

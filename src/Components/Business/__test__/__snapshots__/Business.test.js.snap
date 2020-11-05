@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<ul
+  className="BusinessList"
+  data-testid="business-list"
+>
+  <li
+    className="Business"
+    data-testid="single-business-list"
+  >
+    <h2>
+      SHANSHAR
+    </h2>
+    <h3>
+      Brampton, ON
+    </h3>
+    <h3>
+      Hair, Barbers & Beauty
+    </h3>
+    <p>
+      Our main goal is to WOW you by providing you with high-quality products & services. We offer kids' clothes, décor, beauty & hair care products. They are all fabulous for less.
+    </p>
+    <a
+      data-testid="business-link"
+      href="https://www.shanshar.com/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      www.shanshar.com/
+    </a>
+  </li>
+  <li
+    className="Business"
+    data-testid="single-business-list"
+  >
+    <h2>
+      REAL NATURELLE
+    </h2>
+    <h3>
+      Brampton, ON
+    </h3>
+    <h3>
+      Hair, Barbers & Beauty
+    </h3>
+    <p>
+      Our mission is to provide our clients with natural, healthy and affordable hair & skin products that improve the overall look, feel and health of all skin and hair types.
+    </p>
+    <a
+      data-testid="business-link"
+      href="https://realnaturelle.com/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      realnaturelle.com/
+    </a>
+  </li>
+  <li
+    className="Business"
+    data-testid="single-business-list"
+  >
+    <h2>
+      PASSION HAIR EXTENSIONS
+    </h2>
+    <h3>
+      Brampton, ON
+    </h3>
+    <h3>
+      Hair, Barbers & Beauty
+    </h3>
+    <p>
+      We are a trendsetting Online Hair Extensions Store, offering our first-rate products to shoppers from the comfort of their own homes.
+    </p>
+    <a
+      data-testid="business-link"
+      href="https://passionhair10.wixsite.com/passionhairsales"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      passionhair10.wixsite.com/passionhairsales
+    </a>
+  </li>
+</ul>
+`;

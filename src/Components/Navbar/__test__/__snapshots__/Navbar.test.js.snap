@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<nav
+  className="navbar"
+>
+  <div
+    className="navbar-container"
+  >
+    <a
+      className="navbar-logo"
+      data-testid="navbar-logo"
+      href="/"
+      onClick={[Function]}
+    >
+      BLM-Toronto 
+      <img
+        alt="Navbar Logo"
+        className="navbar-logo-image"
+        src="/BLM-Toronto-Logo.svg"
+      />
+    </a>
+    <div
+      className="menu-icon"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-bars "
+        data-testid="mobile-menu-icon"
+      />
+    </div>
+    <ul
+      className="nav-menu"
+    >
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-links"
+          href="/"
+          onClick={[Function]}
+        >
+          Home
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-links"
+          href="/list-business/"
+          onClick={[Function]}
+        >
+          Virtual Businesses Near Me
+        </a>
+      </li>
+      <li>
+        <a
+          className="nav-links-mobile"
+          data-testid="mobile-button"
+          href="/find-business"
+          onClick={[Function]}
+        >
+          Find a Business
+        </a>
+      </li>
+    </ul>
+    <a
+      data-testid="button-link"
+      href="/find-business"
+      onClick={[Function]}
+    >
+      <button
+        className="btn btn--outline btn--medium"
+        data-testid="button"
+        type="button"
+      >
+        Find a Business
+      </button>
+    </a>
+  </div>
+</nav>
+`;

@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div>
+  <div
+    className="container"
+  >
+    <h1
+      className="title"
+    >
+      Virtual Businesses Near Me
+    </h1>
+    <h2
+      className="selectTitle"
+    >
+      Sort
+    </h2>
+    <div
+      className="select"
+      data-testid="sortBy-menu"
+    >
+      <select
+        className="select-text"
+        onChange={[Function]}
+        value="default"
+      >
+        <option
+          value="default"
+        >
+          Default
+        </option>
+        <option
+          value="alphaAscending"
+        >
+          Name(A-Z)
+        </option>
+        <option
+          value="alphaDescending"
+        >
+          Name(Z-A)
+        </option>
+        <option
+          value="nearestCity"
+        >
+          Nearest City
+        </option>
+      </select>
+    </div>
+    <ul
+      className="BusinessList"
+      data-testid="business-list"
+    />
+    <div
+      className="pagination"
+      data-testid="pagination"
+    >
+      <ul>
+        <li>
+          <a
+            className="button inactive"
+            data-testid="pagination-previous"
+            href="/list-business/#"
+            onClick={[Function]}
+          >
+            «
+          </a>
+        </li>
+        <li>
+          <a
+            className="button inactive"
+            data-testid="pagination-next"
+            href="/list-business/#"
+            onClick={[Function]}
+          >
+            »
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

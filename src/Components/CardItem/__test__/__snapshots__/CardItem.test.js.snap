@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<li
+  className="cards__item"
+>
+  <a
+    className="cards__item__link"
+    data-testid="card-item"
+    href="/map"
+    onClick={[Function]}
+  >
+    <figure
+      className="cards__item__pic-wrap"
+      data-category="Map"
+      data-testid="card-item-label"
+    >
+      <img
+        alt="Page Previews"
+        className="cards__item__img"
+        data-testid="card-item-img"
+        src="http://ctt.trains.com/sitefiles/images/no-preview-available.png"
+      />
+    </figure>
+    <div
+      className="cards__item__info"
+    >
+      <h2
+        className="cards__item__text"
+      >
+        Click for Map
+      </h2>
+    </div>
+  </a>
+</li>
+`;

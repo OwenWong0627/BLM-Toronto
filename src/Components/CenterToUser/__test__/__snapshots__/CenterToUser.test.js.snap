@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<button
+  className="centerToUser"
+  data-testid="centerToUser-button"
+  onClick={[Function]}
+>
+  <img
+    alt="Home Marker"
+    src="/HomeMarker.svg"
+  />
+</button>
+`;

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="hero-container"
+  data-testid="hero"
+>
+  <h1>
+    <font
+      style={
+        Object {
+          "color": "#00BFFF",
+        }
+      }
+    >
+      DISCOVER
+    </font>
+     LOCAL BLACK-OWNED BUSINESSES & BLACK ENTREPRENEURS
+  </h1>
+  <p>
+    Location Searching Tool to Locate Local Black-Owned Businesses
+  </p>
+</div>
+`;
