@@ -13,7 +13,7 @@ it('Renders without crashing', () => {
    ReactDOM.render(<Router><Navbar /></Router>, div);
 });
 
-it('Renders navbar logo correctly and it links to the home page', () => {
+it('Renders navbar logo with the text content and linking to the home page', () => {
    const { getByTestId } = render(<Router><Navbar /></Router>);
    expect(getByTestId('navbar-logo')).toHaveTextContent("BLM-Toronto");
    expect(getByTestId('navbar-logo')).toHaveAttribute("href", "/");
@@ -33,16 +33,24 @@ test.each(links)(
    }
 );
 
-test('the button triggers the handleClick and closeMobileMenu function as intended', () => {
-   const { getByTestId } = render(<Router><Navbar /></Router>);
-   expect(getByTestId('mobile-menu-icon')).toHaveClass('fas fa-bars');
-   fireEvent.click(getByTestId('mobile-menu-icon'));
-   expect(getByTestId('mobile-menu-icon')).toHaveClass('fas fa-times');
-   fireEvent.click(getByTestId('navbar-logo'));
-   expect(getByTestId('mobile-menu-icon')).toHaveClass('fas fa-bars');
+describe('the button triggers the onClick functions as intended', () => {
+   it('Executes the handleClick function as intended to switch what is displayed in the mobile-menu-icon on clicks', () => {
+      const { getByTestId } = render(<Router><Navbar /></Router>);
+      expect(getByTestId('mobile-menu-icon')).toHaveClass('fas fa-bars');
+      fireEvent.click(getByTestId('mobile-menu-icon'));
+      expect(getByTestId('mobile-menu-icon')).toHaveClass('fas fa-times');
+   });
+   it('Executes the closeMobileMenu function as intended to always turn the mobile-menu-icon to fas fa-bars on click', () => {
+      const { getByTestId } = render(<Router><Navbar /></Router>);
+      expect(getByTestId('mobile-menu-icon')).toHaveClass('fas fa-bars');
+      fireEvent.click(getByTestId('mobile-menu-icon'));
+      expect(getByTestId('mobile-menu-icon')).toHaveClass('fas fa-times');
+      fireEvent.click(getByTestId('navbar-logo'));
+      expect(getByTestId('mobile-menu-icon')).toHaveClass('fas fa-bars');
+   });
 });
 
-it('Renders the mobile navbar button correctly and it links to the correct page', () => {
+it('Renders the mobile navbar button, linking to the correct page/URL', () => {
    const { getByTestId } = render(<Router><Navbar /></Router>);
    expect(getByTestId('mobile-button')).toHaveTextContent("Find a Business");
    expect(getByTestId('mobile-button')).toHaveAttribute("href", "/find-business");

@@ -16,7 +16,6 @@ exports[`matches snapshot 1`] = `
     >
       <ul
         className="cards__items"
-        data-testid="card-list"
       >
         <li
           className="cards__item"

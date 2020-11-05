@@ -12,7 +12,7 @@ it('Renders without crashing', () => {
    ReactDOM.render(<Hero />, div);
 });
 
-it('Renders the correct content', () => {
+it('Renders the hero component with the correct text content as outline in the component', () => {
    const { getByTestId } = render(<Hero />);
    expect(getByTestId("hero")).toHaveTextContent("DISCOVER LOCAL BLACK-OWNED BUSINESSES & BLACK ENTREPRENEURS");
    expect(getByTestId("hero")).toHaveTextContent("Location Searching Tool to Locate Local Black-Owned Businesses");

@@ -3,10 +3,10 @@
 exports[`matches snapshot 1`] = `
 <div
   className="stats-container"
-  data-testid="stats"
 >
   <div
     className="stat-box"
+    data-testid="stats-1"
   >
     <h2
       className="stat-number"
@@ -21,6 +21,7 @@ exports[`matches snapshot 1`] = `
   </div>
   <div
     className="stat-box"
+    data-testid="stats-2"
   >
     <h2
       className="stat-number"

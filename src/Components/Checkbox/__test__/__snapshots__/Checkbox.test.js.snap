@@ -3,7 +3,9 @@
 exports[`matches snapshot 1`] = `
 Array [
   <li>
-    <label>
+    <label
+      data-testid="checkbox-text"
+    >
       <input
         checked={true}
         data-testid="checkbox"
@@ -15,7 +17,9 @@ Array [
     </label>
   </li>,
   <li>
-    <label>
+    <label
+      data-testid="checkbox-text"
+    >
       <input
         checked={true}
         data-testid="checkbox"
@@ -27,7 +31,9 @@ Array [
     </label>
   </li>,
   <li>
-    <label>
+    <label
+      data-testid="checkbox-text"
+    >
       <input
         checked={true}
         data-testid="checkbox"
@@ -39,7 +45,9 @@ Array [
     </label>
   </li>,
   <li>
-    <label>
+    <label
+      data-testid="checkbox-text"
+    >
       <input
         checked={true}
         data-testid="checkbox"
@@ -51,7 +59,9 @@ Array [
     </label>
   </li>,
   <li>
-    <label>
+    <label
+      data-testid="checkbox-text"
+    >
       <input
         checked={true}
         data-testid="checkbox"

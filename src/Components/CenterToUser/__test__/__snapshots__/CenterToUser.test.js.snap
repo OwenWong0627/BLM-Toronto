@@ -5,6 +5,7 @@ exports[`matches snapshot 1`] = `
   className="centerToUser"
   data-testid="centerToUser-button"
   onClick={[Function]}
+  type="button"
 >
   <img
     alt="Home Marker"

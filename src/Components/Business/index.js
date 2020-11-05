@@ -22,7 +22,7 @@ const Business = ({ businesses }) => {
          </ul>
       </>
    )
-}
+};
 
 /**
  * propType Documentation

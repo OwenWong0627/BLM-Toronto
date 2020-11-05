@@ -41,17 +41,43 @@ it('Renders without crashing', () => {
    ReactDOM.render(<Business businesses={sampleBusinesses} />, div);
 });
 
-it('Renders a business item with the correct JSX tags and content', () => {
-   const { getByTestId } = render(<Business businesses={sampleBusinesses.slice(0, 1)} />);
-   expect(getByTestId('business-list')).toHaveTextContent(sampleBusinesses.slice(0, 1)[0].name);
-   expect(getByTestId('business-list')).toHaveClass("BusinessList", { exact: true });
-   expect(getByTestId('single-business-list')).toHaveClass("Business", { exact: true });
-   expect(getByTestId('single-business-list')).toContainHTML("li");
-   expect(getByTestId('single-business-list')).toContainHTML("h2");
-   expect(getByTestId('single-business-list')).toContainHTML("h3");
-   expect(getByTestId('single-business-list')).toContainHTML("p");
-   expect(getByTestId('business-link')).toHaveAttribute("href", sampleBusinesses.slice(0, 1)[0].website);
-   expect(getByTestId('business-link')).toHaveTextContent(sampleBusinesses.slice(0, 1)[0].website.split("://")[1]);
+describe('Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop', () => {
+   it('Checks if the business list has the class name of BusinessList', () => {
+      const { getByTestId } = render(<Business businesses={sampleBusinesses.slice(0, 1)} />);
+      expect(getByTestId('business-list')).toHaveClass("BusinessList", { exact: true });
+   });
+   it('Checks if the business list has a li element wrapped around the single business', () => {
+      const { getByTestId } = render(<Business businesses={sampleBusinesses.slice(0, 1)} />);
+      expect(getByTestId('single-business-list')).toContainHTML("li");
+   });
+   it('Checks if the business has the class name of Business', () => {
+      const { getByTestId } = render(<Business businesses={sampleBusinesses.slice(0, 1)} />);
+      expect(getByTestId('single-business-list')).toHaveClass("Business", { exact: true });
+   })
+   it('Checks if the business name is displayed as text content', () => {
+      const { getByTestId } = render(<Business businesses={sampleBusinesses.slice(0, 1)} />);
+      expect(getByTestId('single-business-list')).toHaveTextContent(sampleBusinesses.slice(0, 1)[0].name);
+   });
+   it('Checks if the business city is displayed as text content', () => {
+      const { getByTestId } = render(<Business businesses={sampleBusinesses.slice(0, 1)} />);
+      expect(getByTestId('single-business-list')).toHaveTextContent(sampleBusinesses.slice(0, 1)[0].city);
+   });
+   it('Checks if the business type is displayed as text content', () => {
+      const { getByTestId } = render(<Business businesses={sampleBusinesses.slice(0, 1)} />);
+      expect(getByTestId('single-business-list')).toHaveTextContent(sampleBusinesses.slice(0, 1)[0].type);
+   });
+   it('Checks if the business description is displayed as text content', () => {
+      const { getByTestId } = render(<Business businesses={sampleBusinesses.slice(0, 1)} />);
+      expect(getByTestId('single-business-list')).toHaveTextContent(sampleBusinesses.slice(0, 1)[0].description);
+   });
+   it('Checks if the business website is in the href attribute of the anchor tag', () => {
+      const { getByTestId } = render(<Business businesses={sampleBusinesses.slice(0, 1)} />);
+      expect(getByTestId('business-link')).toHaveAttribute("href", sampleBusinesses.slice(0, 1)[0].website);
+   });
+   it('Checks if the business website, excluding the https:// or http://, is displayed as text content', () => {
+      const { getByTestId } = render(<Business businesses={sampleBusinesses.slice(0, 1)} />);
+      expect(getByTestId('business-link')).toHaveTextContent(sampleBusinesses.slice(0, 1)[0].website.split("://")[1]);
+   })
 });
 
 it('matches snapshot', () => {

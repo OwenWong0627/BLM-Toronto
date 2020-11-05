@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
  * The onChange function prop will determine what happens when the checkbox is checked/unchecked
  */
 const Checkbox = ({ name, checked, onChange }) => (
-   <li><label><input
+   <li><label data-testid="checkbox-text" ><input
       data-testid="checkbox"
       type='checkbox'
       name={name}

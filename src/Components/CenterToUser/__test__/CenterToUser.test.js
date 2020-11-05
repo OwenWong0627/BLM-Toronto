@@ -14,7 +14,22 @@ it('Renders without crashing', () => {
    ReactDOM.render(<CenterToUser />, div);
 });
 
-test('if the onClick in the component is responsive', () => {
+describe('Renders the CenterToUser component with the correct HTML elements and attributes', () => {
+   it('Checks if the component has an HTML element of button', () => {
+      const { getByTestId } = render(<CenterToUser />);
+      expect(getByTestId("centerToUser-button")).toContainHTML("button");
+   });
+   it('Checks if the component has a button element with a class name of centerToUser', () => {
+      const { getByTestId } = render(<CenterToUser />);
+      expect(getByTestId("centerToUser-button")).toHaveClass("centerToUser");
+   });
+   it('Checks if the component has a button element with a type of button', () => {
+      const { getByTestId } = render(<CenterToUser />);
+      expect(getByTestId("centerToUser-button")).toHaveAttribute("type", "button");
+   });
+});
+
+test('When clicked, the component executes the panTo function with the center argument', () => {
    const mockFunction = jest.fn();
    const { getByTestId } = render(<CenterToUser panTo={mockFunction} center={mockCenter} />);
    fireEvent.click(getByTestId("centerToUser-button"));

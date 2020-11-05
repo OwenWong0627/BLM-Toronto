@@ -7,12 +7,12 @@ import './Stats.css';
  */
 function Stats() {
    return (
-      <div data-testid="stats" className="stats-container">
-         <div className="stat-box">
+      <div className="stats-container">
+         <div className="stat-box" data-testid="stats-1">
             <h2 className="stat-number">100+</h2>
             <h2 className="stat-text">Businesses Included</h2>
          </div>
-         <div className="stat-box">
+         <div className="stat-box" data-testid="stats-2">
             <h2 className="stat-number">10,000+</h2>
             <h2 className="stat-text">Searches Made</h2>
          </div>

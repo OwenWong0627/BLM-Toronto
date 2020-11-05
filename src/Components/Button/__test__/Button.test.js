@@ -13,23 +13,30 @@ it('Renders without crashing', () => {
    ReactDOM.render(<Router><Button label="haha" type="button" /></Router>, div);
 });
 
-it('Renders button correctly', () => {
-   const { getByTestId } = render(<Router><Button label="Click to Find Business" buttonStyle="btn--primary" type="button" /></Router>);
-   expect(getByTestId('button')).toHaveTextContent("Click to Find Business");
-   expect(getByTestId('button')).toHaveClass("btn--primary");
-   expect(getByTestId('button')).toHaveAttribute("type", "button");
+describe('Renders button with the correct text onte, class names, and attributes given the props in the component', () => {
+   it('Checks if the button has the text content matching the label prop', () => {
+      const { getByTestId } = render(<Router><Button label="CLICK ME PLEASE" type="button" /></Router>);
+      expect(getByTestId('button')).toHaveTextContent("CLICK ME PLEASE");
+   });
+   it('Checks if the button has the button type of what is passed into the type prop of the component', () => {
+      const { getByTestId } = render(<Router><Button label="CLICK ME PLEASE" type="button" /></Router>);
+      expect(getByTestId('button')).toHaveAttribute("type", "button");
+      expect(getByTestId('button')).not.toHaveAttribute("type", "submit");
+   });
+   it('Checks if the button class names are btn--primary and btn--medium when there are no variables passed into the buttonStyle and buttonSize prop', () => {
+      const { getByTestId } = render(<Router><Button label="CLICK ME PLEASE" type="button" /></Router>);
+      expect(getByTestId('button')).toHaveClass("btn--primary");
+      expect(getByTestId('button')).toHaveClass("btn--medium");
+   });
+   it('Checks if the button class names are matching the buttonStyle and buttonSize props of the component', () => {
+      const { getByTestId } = render(<Router><Button label="CLICK ME PLEASE" buttonStyle="btn--outline" buttonSize="btn--large" type="button" /></Router>);
+      expect(getByTestId('button')).toHaveClass("btn--outline");
+      expect(getByTestId('button')).toHaveClass("btn--large");
+   });
 });
 
-it('Renders button correctly', () => {
-   const { getByTestId } = render(<Router><Button label="CLICK ME PLEASE" buttonStyle="btn--outline" buttonSize="btn--medium" type="button" /></Router>);
-   expect(getByTestId('button')).toHaveTextContent("CLICK ME PLEASE");
-   expect(getByTestId('button')).toHaveClass("btn--outline");
-   expect(getByTestId('button')).toHaveClass("btn--medium");
-   expect(getByTestId('button')).not.toHaveAttribute("type", "submit");
-});
-
-it('Renders button with correct href', () => {
-   const { getByTestId } = render(<Router><Button label="Find Business" buttonStyle="btn--outline" type="button" /></Router>);
+it('Checks if the button is linked to the correct href to redirect users to', () => {
+   const { getByTestId } = render(<Router><Button label="Find Business" type="button" /></Router>);
    expect(getByTestId('button-link')).toHaveAttribute("href", "/find-business");
 });
 

@@ -9,6 +9,7 @@ function CenterToUser({ panTo, center }) {
    return (
       <button
          data-testid="centerToUser-button"
+         type="button"
          className="centerToUser"
          onClick={() => {
             panTo({

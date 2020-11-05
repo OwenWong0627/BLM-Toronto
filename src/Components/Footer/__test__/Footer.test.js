@@ -13,15 +13,32 @@ it("renders without crashing", () => {
    ReactDOM.render(<Router><Footer /></Router>, div);
 });
 
-it('Renders the correct content', () => {
+describe('Renders the correct content and attributes in the footer', () => {
    const { getByTestId } = render(<Router><Footer /></Router>);
-   expect(getByTestId("footer-logo")).toHaveTextContent("BLM-Toronto");
-   expect(getByTestId("footer-logo")).toHaveAttribute("href", "/");
-   expect(getByTestId("footer-logo")).toContainHTML("img");
-   expect(getByTestId("github-link")).toHaveAttribute("href", "https://github.com/OwenWong0627/BLM-Toronto");
-   expect(getByTestId("github-link")).toHaveAttribute("target", "_blank");
-   expect(getByTestId("github-link")).toContainElement(getByTestId("github-icon"));
-   expect(getByTestId("website-rights")).toHaveTextContent("© Owen Wong & Leo Wang. All rights reserved");
+   it('Checks if the footer logo has the text content of BLM-Toronto', () => {
+      const { getByTestId } = render(<Router><Footer /></Router>);
+      expect(getByTestId("footer-logo")).toHaveTextContent("BLM-Toronto");
+   });
+   it('Checks if the footer logo has the image html element', () => {
+      const { getByTestId } = render(<Router><Footer /></Router>);
+      expect(getByTestId("footer-logo")).toHaveAttribute("href", "/");
+   });
+   it('Checks if the Github link in the footer links to the correct URL', () => {
+      const { getByTestId } = render(<Router><Footer /></Router>);
+      expect(getByTestId("github-link")).toHaveAttribute("href", "https://github.com/OwenWong0627/BLM-Toronto");
+   });
+   it('Checks if the Github link in the footer redirects the URL to a new page', () => {
+      const { getByTestId } = render(<Router><Footer /></Router>);
+      expect(getByTestId("github-link")).toHaveAttribute("target", "_blank");
+   });
+   it('Checks if the Github link of the logo has the image with the testId of github-icon', () => {
+      const { getByTestId } = render(<Router><Footer /></Router>);
+      expect(getByTestId("github-link")).toContainElement(getByTestId("github-icon"));
+   });
+   it('Checks if the website rights section of the footer has the text content outlined in the component', () => {
+      const { getByTestId } = render(<Router><Footer /></Router>);
+      expect(getByTestId("website-rights")).toHaveTextContent("© Owen Wong & Leo Wang. All rights reserved");
+   })
 });
 
 it('matches snapshot', () => {

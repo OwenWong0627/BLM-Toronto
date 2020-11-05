@@ -12,7 +12,7 @@ function Cards() {
          <h1>Check Out The App Features & Functionalities!</h1>
          <div className='cards__container'>
             <div className='cards__wrapper'>
-               <ul data-testid="card-list" className='cards__items'>
+               <ul className='cards__items'>
                   <CardItem
                      src='/Map_Preview.png'
                      text='Explore The Map to Find Your Local Black-owned Business'
