@@ -4,6 +4,7 @@ import Searchbar from '..';
 
 import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import renderer from 'react-test-renderer';
 
 import * as usePlacesAutocompleteModules from "use-places-autocomplete";
 
@@ -45,4 +46,16 @@ it('Renders the searchbar and checks if the manually set user input value is dis
    expect(getByTestId("search-bar")).toHaveAttribute("value", "Toron");
    expect(getByText("Toron")).toBeInTheDocument();
    expect(getByText("to, ON, Canada")).toBeInTheDocument();
+});
+
+it('matches snapshot', () => {
+   usePlacesAutocompleteModules.default = jest.fn().mockReturnValue({
+      ready: true,
+      value: "Toron",
+      suggestions: { status: "OK", data: [{ place_id: "1", description: "Toronto, ON, Canada" }, { place_id: "2", description: "Mississauga, ON, Canada" }] },
+      setValue: () => { },
+      clearSuggestions: () => { }
+   });
+   const tree = renderer.create(<Searchbar />).toJSON();
+   expect(tree).toMatchSnapshot();
 });

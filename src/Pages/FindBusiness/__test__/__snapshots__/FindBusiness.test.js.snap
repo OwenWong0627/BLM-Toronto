@@ -1,0 +1,258 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+Array [
+  <div
+    className="menu-button"
+    id="menu"
+    onClick={[Function]}
+  >
+    <i
+      className="fas fa-bars"
+    />
+  </div>,
+  <div
+    className="side-menu"
+    data-testid="sidebar"
+  >
+    <ul
+      className="side-menu-items"
+      data-testid="checkbox-filter"
+    >
+      <li
+        className="sidebar-header"
+      >
+        <div
+          className="menu-button cross"
+          onClick={[Function]}
+        >
+          <i
+            className="fas fa-times"
+          />
+        </div>
+      </li>
+      <li>
+        <h1>
+          Categories
+        </h1>
+      </li>
+      <li>
+        <label>
+          <input
+            checked={false}
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <h2
+            className="checkAll"
+          >
+            Check/Uncheck All
+          </h2>
+        </label>
+      </li>
+      <li>
+        <label
+          data-testid="checkbox-text"
+        >
+          <input
+            checked={false}
+            data-testid="checkbox"
+            name="Art, Artists & Art Galleries"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          Art, Artists & Art Galleries
+        </label>
+      </li>
+      <li>
+        <label
+          data-testid="checkbox-text"
+        >
+          <input
+            checked={false}
+            data-testid="checkbox"
+            name="Education, Books & Black Authors"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          Education, Books & Black Authors
+        </label>
+      </li>
+      <li>
+        <label
+          data-testid="checkbox-text"
+        >
+          <input
+            checked={false}
+            data-testid="checkbox"
+            name="Business, Services & Technology"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          Business, Services & Technology
+        </label>
+      </li>
+      <li>
+        <label
+          data-testid="checkbox-text"
+        >
+          <input
+            checked={false}
+            data-testid="checkbox"
+            name="Doctors, Health & Fitness"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          Doctors, Health & Fitness
+        </label>
+      </li>
+      <li>
+        <label
+          data-testid="checkbox-text"
+        >
+          <input
+            checked={false}
+            data-testid="checkbox"
+            name="Real Estate & Home Services"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          Real Estate & Home Services
+        </label>
+      </li>
+      <li>
+        <label
+          data-testid="checkbox-text"
+        >
+          <input
+            checked={false}
+            data-testid="checkbox"
+            name="Community & Faith Centers"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          Community & Faith Centers
+        </label>
+      </li>
+      <li>
+        <label
+          data-testid="checkbox-text"
+        >
+          <input
+            checked={false}
+            data-testid="checkbox"
+            name="Hair, Barbers & Beauty"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          Hair, Barbers & Beauty
+        </label>
+      </li>
+      <li>
+        <label
+          data-testid="checkbox-text"
+        >
+          <input
+            checked={false}
+            data-testid="checkbox"
+            name="Media, Events & Entertainment"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          Media, Events & Entertainment
+        </label>
+      </li>
+      <li>
+        <label
+          data-testid="checkbox-text"
+        >
+          <input
+            checked={false}
+            data-testid="checkbox"
+            name="Restaurants, Bakeries & Grocery"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          Restaurants, Bakeries & Grocery
+        </label>
+      </li>
+      <li>
+        <label
+          data-testid="checkbox-text"
+        >
+          <input
+            checked={false}
+            data-testid="checkbox"
+            name="Travel, Auto & Other Services"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          Travel, Auto & Other Services
+        </label>
+      </li>
+    </ul>
+    <button
+      className="filterButton"
+      data-testid="filter-button"
+      onClick={[Function]}
+      type="button"
+    >
+      Apply Filter
+    </button>
+  </div>,
+  <div
+    className="Map"
+    data-testid="map"
+  >
+    <a
+      data-testid="home-button"
+      href="/"
+      onClick={[Function]}
+    >
+      <img
+        alt="Home-Button"
+        className="home"
+        src="/BLM-Toronto-Logo.svg"
+        title="Go To Home Page"
+      />
+    </a>
+    <button
+      className="centerToUser"
+      data-testid="centerToUser-button"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="Home Marker"
+        src="/HomeMarker.svg"
+      />
+    </button>
+    <div
+      className="searchbar"
+    >
+      <div
+        data-reach-combobox=""
+      >
+        <input
+          aria-autocomplete="both"
+          aria-controls="listbox--7"
+          aria-expanded={false}
+          aria-haspopup="listbox"
+          data-reach-combobox-input=""
+          data-testid="search-bar"
+          disabled={true}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          placeholder="Enter an address"
+          role="combobox"
+          value=""
+        />
+        <span />
+      </div>
+    </div>
+  </div>,
+]
+`;

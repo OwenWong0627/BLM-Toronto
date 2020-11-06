@@ -1,11 +1,12 @@
 import * as ReactModule from 'react';
 import React from 'react';
 import FindBusiness from '..';
-
 import * as GoogleMapsAPI from '@react-google-maps/api';
+
 import { BrowserRouter as Router } from 'react-router-dom';
 import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import renderer from 'react-test-renderer';
 
 const baseMockCenter = { lat: 43.1, lng: -79.2 };
 afterEach(cleanup);
@@ -66,4 +67,15 @@ describe('Renders FindBusiness Map page without crashing', () => {
       const { getByTestId } = render(<Router><FindBusiness /></Router>);
       expect(getByTestId("search-bar")).toBeInTheDocument();
    });
+});
+
+it('matches snapshot', () => {
+   GoogleMapsAPI.default.useLoadScript = jest.fn().mockReturnValue({ isLoaded: true, loadError: null });
+   GoogleMapsAPI.useLoadScript = jest.fn().mockReturnValue({ isLoaded: true, loadError: null });
+   ReactModule.useState = jest.fn()
+      .mockImplementationOnce(initialState => [false, () => { }])
+      .mockImplementationOnce(initialState => [baseMockCenter, () => { }])
+      .mockImplementation(initialState => [initialState, () => { }]);
+   const tree = renderer.create(<Router><FindBusiness /></Router>).toJSON();
+   expect(tree).toMatchSnapshot();
 });
