@@ -1,0 +1,218 @@
+{
+   "numFailedTestSuites": 0,
+   "numFailedTests": 0,
+   "numPassedTestSuites": 1,
+   "numPassedTests": 18,
+   "numPendingTestSuites": 0,
+   "numPendingTests": 0,
+   "numRuntimeErrorTestSuites": 0,
+   "numTodoTests": 0,
+   "numTotalTestSuites": 1,
+   "numTotalTests": 18,
+   "openHandles": [],
+   "snapshot": {
+      "added": 0,
+      "didUpdate": false,
+      "failure": false,
+      "filesAdded": 0,
+      "filesRemoved": 0,
+      "filesRemovedList": [],
+      "filesUnmatched": 0,
+      "filesUpdated": 0,
+      "matched": 1,
+      "total": 1,
+      "unchecked": 0,
+      "uncheckedKeysByFile": [],
+      "unmatched": 0,
+      "updated": 0
+   },
+   "startTime": 1604652963996,
+   "success": true,
+   "testResults": [
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Renders without crashing",
+               "location": null,
+               "status": "passed",
+               "title": "Renders without crashing"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Renders List Business page with the correct pagination feature(next page/previous page)",
+               "location": null,
+               "status": "passed",
+               "title": "Renders List Business page with the correct pagination feature(next page/previous page)"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders List Business page's sortBy dropdown with the correct text content"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders List Business page's sortBy dropdown with the correct text content Checks if one of the dropdown text content is Default",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if one of the dropdown text content is Default"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders List Business page's sortBy dropdown with the correct text content"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders List Business page's sortBy dropdown with the correct text content Checks if one of the dropdown text content is Name(A-Z)",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if one of the dropdown text content is Name(A-Z)"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders List Business page's sortBy dropdown with the correct text content"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders List Business page's sortBy dropdown with the correct text content Checks if one of the dropdown text content is Name(Z-A)",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if one of the dropdown text content is Name(Z-A)"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders List Business page's sortBy dropdown with the correct text content"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders List Business page's sortBy dropdown with the correct text content Checks if one of the dropdown text content is Nearest City",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if one of the dropdown text content is Nearest City"
+            },
+            {
+               "ancestorTitles": [
+                  "getNearestCity works as intended"
+               ],
+               "failureMessages": [],
+               "fullName": "getNearestCity works as intended getNearestCity calculates the nearest city from an array of city objects",
+               "location": null,
+               "status": "passed",
+               "title": "getNearestCity calculates the nearest city from an array of city objects"
+            },
+            {
+               "ancestorTitles": [
+                  "getNearestCity works as intended"
+               ],
+               "failureMessages": [],
+               "fullName": "getNearestCity works as intended getNearestCity calculates the nearest city from cities that are very close to the center",
+               "location": null,
+               "status": "passed",
+               "title": "getNearestCity calculates the nearest city from cities that are very close to the center"
+            },
+            {
+               "ancestorTitles": [
+                  "getNearestCity works as intended"
+               ],
+               "failureMessages": [],
+               "fullName": "getNearestCity works as intended getNearestCity returns a null value when the lat or lng value is not a number",
+               "location": null,
+               "status": "passed",
+               "title": "getNearestCity returns a null value when the lat or lng value is not a number"
+            },
+            {
+               "ancestorTitles": [
+                  "getDistanceFromLatLonInM works as intended"
+               ],
+               "failureMessages": [],
+               "fullName": "getDistanceFromLatLonInM works as intended getDistanceFromLatLonInM returns 0 when the two points are identical",
+               "location": null,
+               "status": "passed",
+               "title": "getDistanceFromLatLonInM returns 0 when the two points are identical"
+            },
+            {
+               "ancestorTitles": [
+                  "getDistanceFromLatLonInM works as intended"
+               ],
+               "failureMessages": [],
+               "fullName": "getDistanceFromLatLonInM works as intended getDistanceFromLatLonInM returns a small value in meters when the two points are close to eachother",
+               "location": null,
+               "status": "passed",
+               "title": "getDistanceFromLatLonInM returns a small value in meters when the two points are close to eachother"
+            },
+            {
+               "ancestorTitles": [
+                  "getDistanceFromLatLonInM works as intended"
+               ],
+               "failureMessages": [],
+               "fullName": "getDistanceFromLatLonInM works as intended getDistanceFromLatLonInM returns a null value when accepting a non-number parameter",
+               "location": null,
+               "status": "passed",
+               "title": "getDistanceFromLatLonInM returns a null value when accepting a non-number parameter"
+            },
+            {
+               "ancestorTitles": [
+                  "getDistanceFromLatLonInM works as intended"
+               ],
+               "failureMessages": [],
+               "fullName": "getDistanceFromLatLonInM works as intended getDistanceFromLatLonInM returns a null value when the distance calculated is longer then the longest distance possible from two points on the Earth",
+               "location": null,
+               "status": "passed",
+               "title": "getDistanceFromLatLonInM returns a null value when the distance calculated is longer then the longest distance possible from two points on the Earth"
+            },
+            {
+               "ancestorTitles": [
+                  "sortAlphaAscending works as intended"
+               ],
+               "failureMessages": [],
+               "fullName": "sortAlphaAscending works as intended sortAlphaAscending sorts an array of objects properly from A-Z by the values associated with the name key",
+               "location": null,
+               "status": "passed",
+               "title": "sortAlphaAscending sorts an array of objects properly from A-Z by the values associated with the name key"
+            },
+            {
+               "ancestorTitles": [
+                  "sortAlphaAscending works as intended"
+               ],
+               "failureMessages": [],
+               "fullName": "sortAlphaAscending works as intended sortAlphaAscending returns a null value when one of the names of one of the objects is not a string",
+               "location": null,
+               "status": "passed",
+               "title": "sortAlphaAscending returns a null value when one of the names of one of the objects is not a string"
+            },
+            {
+               "ancestorTitles": [
+                  "sortAlphaDescending works as intended"
+               ],
+               "failureMessages": [],
+               "fullName": "sortAlphaDescending works as intended sortAlphaDescending sorts an array of objects properly from A-Z by the values associated with the name key",
+               "location": null,
+               "status": "passed",
+               "title": "sortAlphaDescending sorts an array of objects properly from A-Z by the values associated with the name key"
+            },
+            {
+               "ancestorTitles": [
+                  "sortAlphaDescending works as intended"
+               ],
+               "failureMessages": [],
+               "fullName": "sortAlphaDescending works as intended sortAlphaAscending returns a null value when one of the names of one of the objects is not a string",
+               "location": null,
+               "status": "passed",
+               "title": "sortAlphaAscending returns a null value when one of the names of one of the objects is not a string"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "matches snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "matches snapshot"
+            }
+         ],
+         "endTime": 1604652972415,
+         "message": "",
+         "name": "C:\\Users\\liup1\\Documents\\BLM-Toronto\\src\\Pages\\ListBusiness\\__test__\\ListBusiness.test.js",
+         "startTime": 1604652966619,
+         "status": "passed",
+         "summary": ""
+      }
+   ],
+   "wasInterrupted": false
+}

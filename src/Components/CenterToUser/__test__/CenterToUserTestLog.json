@@ -1,0 +1,98 @@
+{
+   "numFailedTestSuites": 0,
+   "numFailedTests": 0,
+   "numPassedTestSuites": 1,
+   "numPassedTests": 6,
+   "numPendingTestSuites": 0,
+   "numPendingTests": 0,
+   "numRuntimeErrorTestSuites": 0,
+   "numTodoTests": 0,
+   "numTotalTestSuites": 1,
+   "numTotalTests": 6,
+   "openHandles": [],
+   "snapshot": {
+      "added": 0,
+      "didUpdate": false,
+      "failure": false,
+      "filesAdded": 0,
+      "filesRemoved": 0,
+      "filesRemovedList": [],
+      "filesUnmatched": 0,
+      "filesUpdated": 0,
+      "matched": 1,
+      "total": 1,
+      "unchecked": 0,
+      "uncheckedKeysByFile": [],
+      "unmatched": 0,
+      "updated": 0
+   },
+   "startTime": 1604652510447,
+   "success": true,
+   "testResults": [
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Renders without crashing",
+               "location": null,
+               "status": "passed",
+               "title": "Renders without crashing"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders the CenterToUser component with the correct HTML elements and attributes"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders the CenterToUser component with the correct HTML elements and attributes Checks if the component has an HTML element of button",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the component has an HTML element of button"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders the CenterToUser component with the correct HTML elements and attributes"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders the CenterToUser component with the correct HTML elements and attributes Checks if the component has a button element with a class name of centerToUser",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the component has a button element with a class name of centerToUser"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders the CenterToUser component with the correct HTML elements and attributes"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders the CenterToUser component with the correct HTML elements and attributes Checks if the component has a button element with a type of button",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the component has a button element with a type of button"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "When clicked, the component executes the panTo function with the center argument",
+               "location": null,
+               "status": "passed",
+               "title": "When clicked, the component executes the panTo function with the center argument"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "matches snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "matches snapshot"
+            }
+         ],
+         "endTime": 1604652517530,
+         "message": "",
+         "name": "C:\\Users\\liup1\\Documents\\BLM-Toronto\\src\\Components\\CenterToUser\\__test__\\CenterToUser.test.js",
+         "startTime": 1604652512863,
+         "status": "passed",
+         "summary": ""
+      }
+   ],
+   "wasInterrupted": false
+}

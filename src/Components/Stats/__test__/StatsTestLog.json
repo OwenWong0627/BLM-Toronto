@@ -1,0 +1,80 @@
+{
+   "numFailedTestSuites": 0,
+   "numFailedTests": 0,
+   "numPassedTestSuites": 1,
+   "numPassedTests": 4,
+   "numPendingTestSuites": 0,
+   "numPendingTests": 0,
+   "numRuntimeErrorTestSuites": 0,
+   "numTodoTests": 0,
+   "numTotalTestSuites": 1,
+   "numTotalTests": 4,
+   "openHandles": [],
+   "snapshot": {
+      "added": 0,
+      "didUpdate": false,
+      "failure": false,
+      "filesAdded": 0,
+      "filesRemoved": 0,
+      "filesRemovedList": [],
+      "filesUnmatched": 0,
+      "filesUpdated": 0,
+      "matched": 1,
+      "total": 1,
+      "unchecked": 0,
+      "uncheckedKeysByFile": [],
+      "unmatched": 0,
+      "updated": 0
+   },
+   "startTime": 1604652890193,
+   "success": true,
+   "testResults": [
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Renders without crashing",
+               "location": null,
+               "status": "passed",
+               "title": "Renders without crashing"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders the Stats component with the text content oulined in the component"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders the Stats component with the text content oulined in the component Checks if the first stats contain the text content of 100+ and Businesses Included",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the first stats contain the text content of 100+ and Businesses Included"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders the Stats component with the text content oulined in the component"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders the Stats component with the text content oulined in the component Checks if the second stats contain the text content of 10,000+ and Searches Made",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the second stats contain the text content of 10,000+ and Searches Made"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "matches snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "matches snapshot"
+            }
+         ],
+         "endTime": 1604652895727,
+         "message": "",
+         "name": "C:\\Users\\liup1\\Documents\\BLM-Toronto\\src\\Components\\Stats\\__test__\\Stats.test.js",
+         "startTime": 1604652891725,
+         "status": "passed",
+         "summary": ""
+      }
+   ],
+   "wasInterrupted": false
+}

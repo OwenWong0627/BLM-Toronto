@@ -1,0 +1,90 @@
+{
+   "numFailedTestSuites": 0,
+   "numFailedTests": 0,
+   "numPassedTestSuites": 1,
+   "numPassedTests": 5,
+   "numPendingTestSuites": 0,
+   "numPendingTests": 0,
+   "numRuntimeErrorTestSuites": 0,
+   "numTodoTests": 0,
+   "numTotalTestSuites": 1,
+   "numTotalTests": 5,
+   "openHandles": [],
+   "snapshot": {
+      "added": 0,
+      "didUpdate": false,
+      "failure": false,
+      "filesAdded": 0,
+      "filesRemoved": 0,
+      "filesRemovedList": [],
+      "filesUnmatched": 0,
+      "filesUpdated": 0,
+      "matched": 1,
+      "total": 1,
+      "unchecked": 0,
+      "uncheckedKeysByFile": [],
+      "unmatched": 0,
+      "updated": 0
+   },
+   "startTime": 1604652439757,
+   "success": true,
+   "testResults": [
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Renders without crashing",
+               "location": null,
+               "status": "passed",
+               "title": "Renders without crashing"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders two CardItem components"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders two CardItem components Checks if the cards component has the static title outlined in the component",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the cards component has the static title outlined in the component"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders two CardItem components"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders two CardItem components Checks if the first card item with the Map description is rendered",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the first card item with the Map description is rendered"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders two CardItem components"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders two CardItem components Checks if the second card item with the List Virtual Businesses description is rendered",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the second card item with the List Virtual Businesses description is rendered"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "matches snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "matches snapshot"
+            }
+         ],
+         "endTime": 1604652446709,
+         "message": "",
+         "name": "C:\\Users\\liup1\\Documents\\BLM-Toronto\\src\\Components\\Cards\\__test__\\Cards.test.js",
+         "startTime": 1604652441829,
+         "status": "passed",
+         "summary": ""
+      }
+   ],
+   "wasInterrupted": false
+}

@@ -1,0 +1,108 @@
+{
+   "numFailedTestSuites": 0,
+   "numFailedTests": 0,
+   "numPassedTestSuites": 1,
+   "numPassedTests": 7,
+   "numPendingTestSuites": 0,
+   "numPendingTests": 0,
+   "numRuntimeErrorTestSuites": 0,
+   "numTodoTests": 0,
+   "numTotalTestSuites": 1,
+   "numTotalTests": 7,
+   "openHandles": [],
+   "snapshot": {
+      "added": 0,
+      "didUpdate": false,
+      "failure": false,
+      "filesAdded": 0,
+      "filesRemoved": 0,
+      "filesRemovedList": [],
+      "filesUnmatched": 0,
+      "filesUpdated": 0,
+      "matched": 1,
+      "total": 1,
+      "unchecked": 0,
+      "uncheckedKeysByFile": [],
+      "unmatched": 0,
+      "updated": 0
+   },
+   "startTime": 1604652289273,
+   "success": true,
+   "testResults": [
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Renders without crashing",
+               "location": null,
+               "status": "passed",
+               "title": "Renders without crashing"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders button with the correct text onte, class names, and attributes given the props in the component"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders button with the correct text onte, class names, and attributes given the props in the component Checks if the button has the text content matching the label prop",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the button has the text content matching the label prop"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders button with the correct text onte, class names, and attributes given the props in the component"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders button with the correct text onte, class names, and attributes given the props in the component Checks if the button has the button type of what is passed into the type prop of the component",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the button has the button type of what is passed into the type prop of the component"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders button with the correct text onte, class names, and attributes given the props in the component"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders button with the correct text onte, class names, and attributes given the props in the component Checks if the button class names are btn--primary and btn--medium when there are no variables passed into the buttonStyle and buttonSize prop",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the button class names are btn--primary and btn--medium when there are no variables passed into the buttonStyle and buttonSize prop"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders button with the correct text onte, class names, and attributes given the props in the component"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders button with the correct text onte, class names, and attributes given the props in the component Checks if the button class names are matching the buttonStyle and buttonSize props of the component",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the button class names are matching the buttonStyle and buttonSize props of the component"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Checks if the button is linked to the correct href to redirect users to",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the button is linked to the correct href to redirect users to"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "matches snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "matches snapshot"
+            }
+         ],
+         "endTime": 1604652295685,
+         "message": "",
+         "name": "C:\\Users\\liup1\\Documents\\BLM-Toronto\\src\\Components\\Button\\__test__\\Button.test.js",
+         "startTime": 1604652291894,
+         "status": "passed",
+         "summary": ""
+      }
+   ],
+   "wasInterrupted": false
+}

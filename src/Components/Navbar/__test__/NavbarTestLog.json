@@ -1,0 +1,112 @@
+{
+   "numFailedTestSuites": 0,
+   "numFailedTests": 0,
+   "numPassedTestSuites": 1,
+   "numPassedTests": 8,
+   "numPendingTestSuites": 0,
+   "numPendingTests": 0,
+   "numRuntimeErrorTestSuites": 0,
+   "numTodoTests": 0,
+   "numTotalTestSuites": 1,
+   "numTotalTests": 8,
+   "openHandles": [],
+   "snapshot": {
+      "added": 0,
+      "didUpdate": false,
+      "failure": false,
+      "filesAdded": 0,
+      "filesRemoved": 0,
+      "filesRemovedList": [],
+      "filesUnmatched": 0,
+      "filesUpdated": 0,
+      "matched": 1,
+      "total": 1,
+      "unchecked": 0,
+      "uncheckedKeysByFile": [],
+      "unmatched": 0,
+      "updated": 0
+   },
+   "startTime": 1604652745405,
+   "success": true,
+   "testResults": [
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Renders without crashing",
+               "location": null,
+               "status": "passed",
+               "title": "Renders without crashing"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Renders navbar logo with the text content and linking to the home page",
+               "location": null,
+               "status": "passed",
+               "title": "Renders navbar logo with the text content and linking to the home page"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Check if Nav Bar has { text: 'Home', location: '/' } link.",
+               "location": null,
+               "status": "passed",
+               "title": "Check if Nav Bar has { text: 'Home', location: '/' } link."
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Check if Nav Bar has { text: 'Virtual Businesses Near Me', location: '/list-business/' } link.",
+               "location": null,
+               "status": "passed",
+               "title": "Check if Nav Bar has { text: 'Virtual Businesses Near Me', location: '/list-business/' } link."
+            },
+            {
+               "ancestorTitles": [
+                  "the button triggers the onClick functions as intended"
+               ],
+               "failureMessages": [],
+               "fullName": "the button triggers the onClick functions as intended Executes the handleClick function as intended to switch what is displayed in the mobile-menu-icon on clicks",
+               "location": null,
+               "status": "passed",
+               "title": "Executes the handleClick function as intended to switch what is displayed in the mobile-menu-icon on clicks"
+            },
+            {
+               "ancestorTitles": [
+                  "the button triggers the onClick functions as intended"
+               ],
+               "failureMessages": [],
+               "fullName": "the button triggers the onClick functions as intended Executes the closeMobileMenu function as intended to always turn the mobile-menu-icon to fas fa-bars on click",
+               "location": null,
+               "status": "passed",
+               "title": "Executes the closeMobileMenu function as intended to always turn the mobile-menu-icon to fas fa-bars on click"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Renders the mobile navbar button, linking to the correct page/URL",
+               "location": null,
+               "status": "passed",
+               "title": "Renders the mobile navbar button, linking to the correct page/URL"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "matches snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "matches snapshot"
+            }
+         ],
+         "endTime": 1604652753172,
+         "message": "",
+         "name": "C:\\Users\\liup1\\Documents\\BLM-Toronto\\src\\Components\\Navbar\\__test__\\Navbar.test.js",
+         "startTime": 1604652748554,
+         "status": "passed",
+         "summary": ""
+      }
+   ],
+   "wasInterrupted": false
+}

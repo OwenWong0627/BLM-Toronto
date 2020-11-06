@@ -1,0 +1,120 @@
+{
+   "numFailedTestSuites": 0,
+   "numFailedTests": 0,
+   "numPassedTestSuites": 1,
+   "numPassedTests": 8,
+   "numPendingTestSuites": 0,
+   "numPendingTests": 0,
+   "numRuntimeErrorTestSuites": 0,
+   "numTodoTests": 0,
+   "numTotalTestSuites": 1,
+   "numTotalTests": 8,
+   "openHandles": [],
+   "snapshot": {
+      "added": 0,
+      "didUpdate": false,
+      "failure": false,
+      "filesAdded": 0,
+      "filesRemoved": 0,
+      "filesRemovedList": [],
+      "filesUnmatched": 0,
+      "filesUpdated": 0,
+      "matched": 1,
+      "total": 1,
+      "unchecked": 0,
+      "uncheckedKeysByFile": [],
+      "unmatched": 0,
+      "updated": 0
+   },
+   "startTime": 1604652633467,
+   "success": true,
+   "testResults": [
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "renders without crashing",
+               "location": null,
+               "status": "passed",
+               "title": "renders without crashing"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders the correct content and attributes in the footer"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders the correct content and attributes in the footer Checks if the footer logo has the text content of BLM-Toronto",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the footer logo has the text content of BLM-Toronto"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders the correct content and attributes in the footer"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders the correct content and attributes in the footer Checks if the footer logo has the image html element",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the footer logo has the image html element"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders the correct content and attributes in the footer"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders the correct content and attributes in the footer Checks if the Github link in the footer links to the correct URL",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the Github link in the footer links to the correct URL"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders the correct content and attributes in the footer"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders the correct content and attributes in the footer Checks if the Github link in the footer redirects the URL to a new page",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the Github link in the footer redirects the URL to a new page"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders the correct content and attributes in the footer"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders the correct content and attributes in the footer Checks if the Github link of the logo has the image with the testId of github-icon",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the Github link of the logo has the image with the testId of github-icon"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders the correct content and attributes in the footer"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders the correct content and attributes in the footer Checks if the website rights section of the footer has the text content outlined in the component",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the website rights section of the footer has the text content outlined in the component"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "matches snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "matches snapshot"
+            }
+         ],
+         "endTime": 1604652639685,
+         "message": "",
+         "name": "C:\\Users\\liup1\\Documents\\BLM-Toronto\\src\\Components\\Footer\\__test__\\Footer.test.js",
+         "startTime": 1604652635924,
+         "status": "passed",
+         "summary": ""
+      }
+   ],
+   "wasInterrupted": false
+}

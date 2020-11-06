@@ -1,0 +1,100 @@
+{
+   "numFailedTestSuites": 0,
+   "numFailedTests": 0,
+   "numPassedTestSuites": 1,
+   "numPassedTests": 6,
+   "numPendingTestSuites": 0,
+   "numPendingTests": 0,
+   "numRuntimeErrorTestSuites": 0,
+   "numTodoTests": 0,
+   "numTotalTestSuites": 1,
+   "numTotalTests": 6,
+   "openHandles": [],
+   "snapshot": {
+      "added": 0,
+      "didUpdate": false,
+      "failure": false,
+      "filesAdded": 0,
+      "filesRemoved": 0,
+      "filesRemovedList": [],
+      "filesUnmatched": 0,
+      "filesUpdated": 0,
+      "matched": 1,
+      "total": 1,
+      "unchecked": 0,
+      "uncheckedKeysByFile": [],
+      "unmatched": 0,
+      "updated": 0
+   },
+   "startTime": 1604652381814,
+   "success": true,
+   "testResults": [
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Renders without crashing",
+               "location": null,
+               "status": "passed",
+               "title": "Renders without crashing"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders a card item correctly, given the props passed into the component"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders a card item correctly, given the props passed into the component Checks if the card item has the image source matching the URL/image link given in the src prop of the component",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the card item has the image source matching the URL/image link given in the src prop of the component"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders a card item correctly, given the props passed into the component"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders a card item correctly, given the props passed into the component Checks if the text content of the card item is identical to the passed in text prop of the component",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the text content of the card item is identical to the passed in text prop of the component"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders a card item correctly, given the props passed into the component"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders a card item correctly, given the props passed into the component Checks if the card item has the data-category attribute matching the passed in label prop of the component",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the card item has the data-category attribute matching the passed in label prop of the component"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders a card item correctly, given the props passed into the component"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders a card item correctly, given the props passed into the component Checks if the card item is linked to the correct href to redirect users to",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the card item is linked to the correct href to redirect users to"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "matches snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "matches snapshot"
+            }
+         ],
+         "endTime": 1604652387785,
+         "message": "",
+         "name": "C:\\Users\\liup1\\Documents\\BLM-Toronto\\src\\Components\\CardItem\\__test__\\CardItem.test.js",
+         "startTime": 1604652383942,
+         "status": "passed",
+         "summary": ""
+      }
+   ],
+   "wasInterrupted": false
+}

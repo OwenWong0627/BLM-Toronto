@@ -1,0 +1,150 @@
+{
+   "numFailedTestSuites": 0,
+   "numFailedTests": 0,
+   "numPassedTestSuites": 1,
+   "numPassedTests": 11,
+   "numPendingTestSuites": 0,
+   "numPendingTests": 0,
+   "numRuntimeErrorTestSuites": 0,
+   "numTodoTests": 0,
+   "numTotalTestSuites": 1,
+   "numTotalTests": 11,
+   "openHandles": [],
+   "snapshot": {
+      "added": 0,
+      "didUpdate": false,
+      "failure": false,
+      "filesAdded": 0,
+      "filesRemoved": 0,
+      "filesRemovedList": [],
+      "filesUnmatched": 0,
+      "filesUpdated": 0,
+      "matched": 1,
+      "total": 1,
+      "unchecked": 0,
+      "uncheckedKeysByFile": [],
+      "unmatched": 0,
+      "updated": 0
+   },
+   "startTime": 1604652195253,
+   "success": true,
+   "testResults": [
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Renders without crashing",
+               "location": null,
+               "status": "passed",
+               "title": "Renders without crashing"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop Checks if the business list has the class name of BusinessList",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the business list has the class name of BusinessList"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop Checks if the business list has a li element wrapped around the single business",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the business list has a li element wrapped around the single business"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop Checks if the business has the class name of Business",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the business has the class name of Business"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop Checks if the business name is displayed as text content",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the business name is displayed as text content"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop Checks if the business city is displayed as text content",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the business city is displayed as text content"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop Checks if the business type is displayed as text content",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the business type is displayed as text content"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop Checks if the business description is displayed as text content",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the business description is displayed as text content"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop Checks if the business website is in the href attribute of the anchor tag",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the business website is in the href attribute of the anchor tag"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders a single business item, and check if the text content stemming in the component matches what is given in the businesses prop Checks if the business website, excluding the https:// or http://, is displayed as text content",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the business website, excluding the https:// or http://, is displayed as text content"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "matches snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "matches snapshot"
+            }
+         ],
+         "endTime": 1604652204098,
+         "message": "",
+         "name": "C:\\Users\\liup1\\Documents\\BLM-Toronto\\src\\Components\\Business\\__test__\\Business.test.js",
+         "startTime": 1604652197765,
+         "status": "passed",
+         "summary": ""
+      }
+   ],
+   "wasInterrupted": false
+}

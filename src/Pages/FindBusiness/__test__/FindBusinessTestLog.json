@@ -1,0 +1,112 @@
+{
+   "numFailedTestSuites": 0,
+   "numFailedTests": 0,
+   "numPassedTestSuites": 1,
+   "numPassedTests": 7,
+   "numPendingTestSuites": 0,
+   "numPendingTests": 0,
+   "numRuntimeErrorTestSuites": 0,
+   "numTodoTests": 0,
+   "numTotalTestSuites": 1,
+   "numTotalTests": 7,
+   "openHandles": [],
+   "snapshot": {
+      "added": 0,
+      "didUpdate": false,
+      "failure": false,
+      "filesAdded": 0,
+      "filesRemoved": 0,
+      "filesRemovedList": [],
+      "filesUnmatched": 0,
+      "filesUpdated": 0,
+      "matched": 1,
+      "total": 1,
+      "unchecked": 0,
+      "uncheckedKeysByFile": [],
+      "unmatched": 0,
+      "updated": 0
+   },
+   "startTime": 1604653546509,
+   "success": true,
+   "testResults": [
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [
+                  "Renders FindBusiness Map page without crashing"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders FindBusiness Map page without crashing Shows a loading text",
+               "location": null,
+               "status": "passed",
+               "title": "Shows a loading text"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders FindBusiness Map page without crashing"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders FindBusiness Map page without crashing Removes the loading text and renders the Googlemap",
+               "location": null,
+               "status": "passed",
+               "title": "Removes the loading text and renders the Googlemap"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders FindBusiness Map page without crashing"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders FindBusiness Map page without crashing Removes the loading text and renders the Home Button",
+               "location": null,
+               "status": "passed",
+               "title": "Removes the loading text and renders the Home Button"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders FindBusiness Map page without crashing"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders FindBusiness Map page without crashing Removes the loading text and renders the sidebar with the apply filter button and checkbox list",
+               "location": null,
+               "status": "passed",
+               "title": "Removes the loading text and renders the sidebar with the apply filter button and checkbox list"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders FindBusiness Map page without crashing"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders FindBusiness Map page without crashing Removes the loading text and renders the centerToUser button",
+               "location": null,
+               "status": "passed",
+               "title": "Removes the loading text and renders the centerToUser button"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders FindBusiness Map page without crashing"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders FindBusiness Map page without crashing Removes the loading text and renders the search bar",
+               "location": null,
+               "status": "passed",
+               "title": "Removes the loading text and renders the search bar"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "matches snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "matches snapshot"
+            }
+         ],
+         "endTime": 1604653554806,
+         "message": "",
+         "name": "C:\\Users\\liup1\\Documents\\BLM-Toronto\\src\\Pages\\FindBusiness\\__test__\\FindBusiness.test.js",
+         "startTime": 1604653549695,
+         "status": "passed",
+         "summary": ""
+      }
+   ],
+   "wasInterrupted": false
+}

@@ -1,0 +1,98 @@
+{
+   "numFailedTestSuites": 0,
+   "numFailedTests": 0,
+   "numPassedTestSuites": 1,
+   "numPassedTests": 6,
+   "numPendingTestSuites": 0,
+   "numPendingTests": 0,
+   "numRuntimeErrorTestSuites": 0,
+   "numTodoTests": 0,
+   "numTotalTestSuites": 1,
+   "numTotalTests": 6,
+   "openHandles": [],
+   "snapshot": {
+      "added": 0,
+      "didUpdate": false,
+      "failure": false,
+      "filesAdded": 0,
+      "filesRemoved": 0,
+      "filesRemovedList": [],
+      "filesUnmatched": 0,
+      "filesUpdated": 0,
+      "matched": 1,
+      "total": 1,
+      "unchecked": 0,
+      "uncheckedKeysByFile": [],
+      "unmatched": 0,
+      "updated": 0
+   },
+   "startTime": 1604652560167,
+   "success": true,
+   "testResults": [
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Renders without crashing",
+               "location": null,
+               "status": "passed",
+               "title": "Renders without crashing"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders a checkbox with the correct text content and default checked value"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders a checkbox with the correct text content and default checked value Checks if the checkbox component has the type attribute of checkbox",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the checkbox component has the type attribute of checkbox"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders a checkbox with the correct text content and default checked value"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders a checkbox with the correct text content and default checked value Checks if the checkbox component has the text content matching the name prop of the component",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the checkbox component has the text content matching the name prop of the component"
+            },
+            {
+               "ancestorTitles": [
+                  "Renders a checkbox with the correct text content and default checked value"
+               ],
+               "failureMessages": [],
+               "fullName": "Renders a checkbox with the correct text content and default checked value Checks if the checkbox component has the default checked value matching the boolean checked prop of the component",
+               "location": null,
+               "status": "passed",
+               "title": "Checks if the checkbox component has the default checked value matching the boolean checked prop of the component"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "When clicked once, the onChange of the component is only executed once",
+               "location": null,
+               "status": "passed",
+               "title": "When clicked once, the onChange of the component is only executed once"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "matches snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "matches snapshot"
+            }
+         ],
+         "endTime": 1604652566847,
+         "message": "",
+         "name": "C:\\Users\\liup1\\Documents\\BLM-Toronto\\src\\Components\\Checkbox\\__test__\\Checkbox.test.js",
+         "startTime": 1604652562847,
+         "status": "passed",
+         "summary": ""
+      }
+   ],
+   "wasInterrupted": false
+}

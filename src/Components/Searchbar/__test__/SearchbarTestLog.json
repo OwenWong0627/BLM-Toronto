@@ -1,0 +1,84 @@
+{
+   "numFailedTestSuites": 0,
+   "numFailedTests": 0,
+   "numPassedTestSuites": 1,
+   "numPassedTests": 5,
+   "numPendingTestSuites": 0,
+   "numPendingTests": 0,
+   "numRuntimeErrorTestSuites": 0,
+   "numTodoTests": 0,
+   "numTotalTestSuites": 1,
+   "numTotalTests": 5,
+   "openHandles": [],
+   "snapshot": {
+      "added": 0,
+      "didUpdate": false,
+      "failure": false,
+      "filesAdded": 0,
+      "filesRemoved": 0,
+      "filesRemovedList": [],
+      "filesUnmatched": 0,
+      "filesUpdated": 0,
+      "matched": 1,
+      "total": 1,
+      "unchecked": 0,
+      "uncheckedKeysByFile": [],
+      "unmatched": 0,
+      "updated": 0
+   },
+   "startTime": 1604653493604,
+   "success": true,
+   "testResults": [
+      {
+         "assertionResults": [
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Renders without crashing",
+               "location": null,
+               "status": "passed",
+               "title": "Renders without crashing"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Renders the searchbar and checks if the searchbar input area has a placeholder of Enter an address",
+               "location": null,
+               "status": "passed",
+               "title": "Renders the searchbar and checks if the searchbar input area has a placeholder of Enter an address"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Renders the searchbar and checks if the manually set data values are displayed as text values in the searchbar combobox option",
+               "location": null,
+               "status": "passed",
+               "title": "Renders the searchbar and checks if the manually set data values are displayed as text values in the searchbar combobox option"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "Renders the searchbar and checks if the manually set user input value is displayed in the search bar and has the correct suggestion",
+               "location": null,
+               "status": "passed",
+               "title": "Renders the searchbar and checks if the manually set user input value is displayed in the search bar and has the correct suggestion"
+            },
+            {
+               "ancestorTitles": [],
+               "failureMessages": [],
+               "fullName": "matches snapshot",
+               "location": null,
+               "status": "passed",
+               "title": "matches snapshot"
+            }
+         ],
+         "endTime": 1604653501602,
+         "message": "",
+         "name": "C:\\Users\\liup1\\Documents\\BLM-Toronto\\src\\Components\\Searchbar\\__test__\\Searchbar.test.js",
+         "startTime": 1604653495878,
+         "status": "passed",
+         "summary": ""
+      }
+   ],
+   "wasInterrupted": false
+}
