@@ -60,7 +60,7 @@ export function getNearestCity(origin, cities) {
 }
 
 /**
- * This function uses the haversine formula to try and calculate the distance between two locations based on their latitude and longitude values
+ * This function uses the Haversine formula to try and calculate the distance between two locations based on their latitude and longitude values
  * This algorithm calculates the straight line distance between the two locations.
  * 
  * @param {number} lat1 - The latitude value of the first location
