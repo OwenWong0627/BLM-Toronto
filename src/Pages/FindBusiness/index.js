@@ -215,6 +215,7 @@ function FindBusiness() {
       mapRef.current.setZoom(13);
    }, []);
 
+   console.log(loadError, isLoaded, center);
    if (loadError) return "Error loading maps";
    if (!isLoaded || center.lat === 0) return "Loading...";
    return (
@@ -222,8 +223,8 @@ function FindBusiness() {
          <div className={sidebar ? 'menu-button invisible' : 'menu-button'} id='menu' onClick={showSidebar}>
             <i className={'fas fa-bars'} />
          </div>
-         <div className={sidebar ? 'side-menu active' : 'side-menu'}>
-            <ul className='side-menu-items'>
+         <div data-testid="sidebar" className={sidebar ? 'side-menu active' : 'side-menu'}>
+            <ul data-testid="checkbox-filter" className='side-menu-items'>
                <li className='sidebar-header'>
                   <div className='menu-button cross' onClick={showSidebar}>
                      <i className={'fas fa-times'} />
@@ -245,11 +246,12 @@ function FindBusiness() {
             </ul>
             <button
                type="button"
+               data-testid="filter-button"
                className="filterButton"
                onClick={() => { hideMarkers(); showSidebar(); setSelectedBusiness(null) }}
             >
                Apply Filter
-               </button>
+            </button>
          </div>
          <div data-testid="map" className="Map">
             {/* Home Button */}
@@ -260,7 +262,7 @@ function FindBusiness() {
             <CenterToUser panTo={panTo} center={center} />
             <Searchbar panTo={panTo} center={center} className={sidebar ? 'searchbar shifted' : 'searchbar'} />
 
-            <GoogleMap
+            {(window.google !== undefined) && <GoogleMap
                mapContainerStyle={mapContainerStyle}
                zoom={10}
                center={center}
@@ -325,7 +327,7 @@ function FindBusiness() {
                      </div>
                   </InfoWindow>
                )}
-            </GoogleMap>
+            </GoogleMap>}
          </div>
       </>
    );

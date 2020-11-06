@@ -31,15 +31,14 @@ function Searchbar({ panTo, center, className }) {
       requestOptions: {
          location: { lat: () => center.lat, lng: () => center.lng },
          radius: 200000,
-      },
+      }
    });
 
    return (
       <div className={className}>
          <Combobox
-            data-testid="search-bar"
             onSelect={async (address) => {
-               //the setvalue keeps the text u inputted in the search box without having to call the api
+               //the setvalue keeps the text you inputted in the search box without having to call the api
                setValue(address, false);
                clearSuggestions();
 
@@ -55,7 +54,7 @@ function Searchbar({ panTo, center, className }) {
             }}
          >
             <ComboboxInput
-               data-testid="input"
+               data-testid="search-bar"
                value={value}
                onChange={(event) => {
                   setValue(event.target.value);
@@ -64,7 +63,7 @@ function Searchbar({ panTo, center, className }) {
                placeholder="Enter an address"
             />
             <ComboboxPopover>
-               <ComboboxList data-testid="search-results">
+               <ComboboxList>
                   {status === "OK" &&
                      data.map(({ place_id, description }) => (
                         <ComboboxOption key={place_id} value={description} />

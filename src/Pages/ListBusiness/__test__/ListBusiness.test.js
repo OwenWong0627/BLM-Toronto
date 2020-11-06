@@ -19,17 +19,27 @@ it('Renders without crashing', () => {
 
 it('Renders List Business page with the correct pagination feature(next page/previous page)', () => {
    const { getByTestId } = render(<Router><ListBusiness /></Router>);
-   expect(getByTestId('pagination')).toContainHTML("ul");
    expect(getByTestId('pagination')).toContainElement(getByTestId("pagination-previous"));
    expect(getByTestId('pagination')).toContainElement(getByTestId("pagination-next"));
 });
 
-it("Renders List Business page's sortBy dropdown with the correct text content", () => {
-   const { getByTestId } = render(<Router><ListBusiness /></Router>);
-   expect(getByTestId('sortBy-menu')).toHaveTextContent("Default");
-   expect(getByTestId('sortBy-menu')).toHaveTextContent("Name(A-Z)");
-   expect(getByTestId('sortBy-menu')).toHaveTextContent("Name(Z-A)");
-   expect(getByTestId('sortBy-menu')).toHaveTextContent("Nearest City");
+describe("Renders List Business page's sortBy dropdown with the correct text content", () => {
+   it('Checks if one of the dropdown text content is Default', () => {
+      const { getByTestId } = render(<Router><ListBusiness /></Router>);
+      expect(getByTestId('sortBy-menu')).toHaveTextContent("Default");
+   });
+   it('Checks if one of the dropdown text content is Name(A-Z)', () => {
+      const { getByTestId } = render(<Router><ListBusiness /></Router>);
+      expect(getByTestId('sortBy-menu')).toHaveTextContent("Name(A-Z)");
+   });
+   it('Checks if one of the dropdown text content is Name(Z-A)', () => {
+      const { getByTestId } = render(<Router><ListBusiness /></Router>);
+      expect(getByTestId('sortBy-menu')).toHaveTextContent("Name(Z-A)");
+   });
+   it('Checks if one of the dropdown text content is Nearest City', () => {
+      const { getByTestId } = render(<Router><ListBusiness /></Router>);
+      expect(getByTestId('sortBy-menu')).toHaveTextContent("Nearest City");
+   });
 })
 
 describe('getNearestCity works as intended', () => {
