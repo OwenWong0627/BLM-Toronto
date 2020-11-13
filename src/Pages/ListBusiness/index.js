@@ -182,9 +182,15 @@ function ListBusiness() {
    //Initializes the center object when the page loads and initializes the virtualBusinesses array
    useEffect(() => {
       async function fetchCenter() {
-         const center = await getUserLocation(IPAPIURL);
-         console.log(center);
-         setCenter(center);
+         try {
+            const cntr = await getUserLocation(IPAPIURL);
+            console.log(cntr);
+            setCenter(cntr);
+         }
+         catch (err) {
+            setCenter({ lat: 43.5601414, lng: -79.716 });
+            alert(err);
+         }
       }
       fetchCenter();
       setVirtualBusinesses(baseVirtualBusinesses);
