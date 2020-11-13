@@ -77,9 +77,15 @@ function FindBusiness() {
    //This will fetch for the current user's current location, according to his/her IP address, when the map first loads
    useEffect(() => {
       async function fetchLocationData() {
-         const cntr = await getUserLocation(IPAPIURL);
-         console.log(cntr);
-         setCenter(cntr);
+         try {
+            const cntr = await getUserLocation(IPAPIURL);
+            console.log(cntr);
+            setCenter(cntr);
+         }
+         catch (err) {
+            setCenter({ lat: 43.5601414, lng: -79.716 });
+            alert(err);
+         }
       }
       fetchLocationData();
    }, []);
