@@ -8,11 +8,11 @@ import {
 } from '@react-google-maps/api';
 
 import mapStyles from './mapStyles';
-import * as businessData from '../../businesses.json';
 import './MapElements.css';
 import Checkbox from '../../Components/Checkbox';
 import Searchbar from '../../Components/Searchbar';
 import CenterToUser from '../../Components/CenterToUser';
+import firebase from '../../utils/firebase';
 
 const libraries = ["places"];
 
@@ -62,6 +62,36 @@ function FindBusiness() {
       libraries,
    });
 
+   const allBusinessesRef = firebase.database().ref();
+   const [allBaseMarkers, setAllBaseMarkers] = useState([]);
+   const [allMarkers, setAllMarkers] = useState([]);
+   useEffect(() => {
+      allBusinessesRef.child('inPersonBusinesses').on('value', (snapshot) => {
+         const cities = snapshot.val();
+         const list = [];
+         for (let id in cities) {
+            list.push({
+               id, ...{
+                  index: cities[id].ID,
+                  name: cities[id].NAME,
+                  type: cities[id].TYPE,
+                  latitude: cities[id].LATITUDE,
+                  longitude: cities[id].LONGITUDE,
+                  address: cities[id].ADDRESS,
+                  postalCode: cities[id].POSTAL_CODE,
+                  city: cities[id].CITY,
+                  website: cities[id].WEBSITE,
+                  description: cities[id].DESCRIPTION,
+                  contactInfo: cities[id].CONTACT_INFO
+               }
+            });
+         }
+         console.log(list);
+         setAllBaseMarkers(list);
+         setAllMarkers(list);
+      });
+   }, []);
+
    const [sidebar, setSidebar] = useState(false);
 
    /**
@@ -92,18 +122,18 @@ function FindBusiness() {
 
    //The commented out items signify that there are currently no businesses in those categories in the database
    const [checkedItems, setCheckedItems] = useState({
-      "Art, Artists & Art Galleries": false,
-      "Education, Books & Black Authors": false,
-      "Business, Services & Technology": false,
-      "Doctors, Health & Fitness": false,
-      "Real Estate & Home Services": false,
+      "Art, Artists & Art Galleries": true,
+      "Education, Books & Black Authors": true,
+      "Business, Services & Technology": true,
+      "Doctors, Health & Fitness": true,
+      "Real Estate & Home Services": true,
       // "Shopping": false,
-      "Community & Faith Centers": false,
-      "Hair, Barbers & Beauty": false,
-      "Media, Events & Entertainment": false,
-      "Restaurants, Bakeries & Grocery": false,
+      "Community & Faith Centers": true,
+      "Hair, Barbers & Beauty": true,
+      "Media, Events & Entertainment": true,
+      "Restaurants, Bakeries & Grocery": true,
       // "Financial & Legal Services": false,
-      "Travel, Auto & Other Services": false
+      "Travel, Auto & Other Services": true
    });
 
    const checkboxes = [
@@ -131,7 +161,7 @@ function FindBusiness() {
       setCheckedItems({ ...checkedItems, [event.target.name]: event.target.checked });
    }
 
-   const [selectAll, setSelectAll] = useState(false);
+   const [selectAll, setSelectAll] = useState(true);
    /**
     * This function updates the CheckedItems array to either check/uncheck all the items in the array
     * @param {EventObject} event -
@@ -142,25 +172,6 @@ function FindBusiness() {
       Object.keys(checkedItems).forEach((key) => { checkedItems[key] = checked });
    }
 
-   //This state will be just a base array with all the initial businesses, this state will be checked
-   //everytime a user applies the filter
-   const [allBaseMarkers] = useState(businessData.inPersonBusinesses.map((business) => {
-      return {
-         id: business.ID,
-         name: business.NAME,
-         type: business.TYPE,
-         latitude: business.LATITUDE,
-         longitude: business.LONGITUDE,
-         address: business.ADDRESS,
-         postalCode: business.POSTAL_CODE,
-         city: business.CITY,
-         website: business.WEBSITE,
-         description: business.DESCRIPTION,
-         contactInfo: business.CONTACT_INFO
-      }
-   }));
-
-   const [allMarkers, setAllMarkers] = useState([]);
    //This useEffect will initialize the allMarkers
    useEffect(() => setAllMarkers(allBaseMarkers), [allBaseMarkers]);
 
@@ -224,6 +235,16 @@ function FindBusiness() {
    console.log(loadError, isLoaded, center);
    if (loadError) return "Error loading maps";
    if (!isLoaded || center.lat === 0) return "Loading...";
+
+   const deleteBusiness = () => {
+      console.log("H!");
+      const businessRef = firebase.database().ref('inPersonBusinesses').child(selectedBusiness.id);
+      businessRef.remove();
+      setSelectedBusiness(null);
+      setSelectAll(true);
+      Object.keys(checkedItems).forEach((key) => { checkedItems[key] = true });
+   }
+
    return (
       <>
          <div className={sidebar ? 'menu-button invisible' : 'menu-button'} id='menu' onClick={showSidebar}>
@@ -323,8 +344,16 @@ function FindBusiness() {
                         lng: parseFloat(selectedBusiness.longitude)
                      }}
                   >
-                     <div>
-                        <h2>{selectedBusiness.name}</h2>
+                     <div className="InfoWindow">
+                        <div className="title-icon">
+                           <h2>{selectedBusiness.name}</h2>
+                           <button
+                              onClick={deleteBusiness}
+                              title="delete this business"
+                              className="delete-icon">
+                              <img src="https://img.icons8.com/flat-round/64/000000/delete-sign.png" alt="delete" />
+                           </button>
+                        </div>
                         <h3>{selectedBusiness.city}</h3>
                         <h3>{selectedBusiness.type}</h3>
                         <h4>{selectedBusiness.address}, {selectedBusiness.postalCode}</h4>

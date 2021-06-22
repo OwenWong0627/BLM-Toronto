@@ -228,3 +228,27 @@ body {
       bottom: 2.5%;
    }
 }
+
+.InfoWindow button {
+   border: none;
+   background-color: Transparent;
+}
+
+.title-icon {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.InfoWindow img {
+   height: 50px;
+   margin-bottom: -30px;
+   padding: 5.75px 4.5px 5px 5px;
+}
+
+.InfoWindow img:hover {
+   background-color: lightgray;
+   transition: background-color .3s;
+   border-radius: 100%;
+   cursor: pointer;
+}
