@@ -2,14 +2,12 @@
 //[number] of businesses at a time. In the future, we would make it scalable for a lot of businesses
 //in a database by calling the database and displaying the called [number] of businesses.
 import React, { useState, useEffect } from 'react';
-import * as businessData from '../../businesses.json';
 import Business from '../../Components/Business';
 import './ListBusiness.css';
 import ScrollToTopOnMount from '../../Components/ScrollToTopOnMount';
+import firebase from '../../utils/firebase';
 
 const IPAPIURL = `https://ipinfo.io/json?token=${process.env.REACT_APP_IPINFO_KEY}`;
-
-const allCities = businessData.allCities;
 
 /**
  * This is function that calls on an IPAPI to extract the latitude and longitude data from the current user
@@ -138,18 +136,47 @@ export function sortAlphaDescending(arrayToBeSorted) {
  * This component represents the list
  */
 function ListBusiness() {
-   const [baseVirtualBusinesses] = useState(businessData.virtualBusinesses.map((business) => {
-      return {
-         id: business.ID,
-         name: business.NAME,
-         type: business.TYPE,
-         city: business.CITY,
-         website: business.WEBSITE,
-         description: business.DESCRIPTION,
-         contactInfo: business.CONTACT_INFO
+   const allBusinessesRef = firebase.database().ref();
+   // reading allCities only once
+   // made it var to make it global and modifiable
+   var allCities = null;
+   allBusinessesRef.child('allCities').get().then((snapshot) => {
+      if (snapshot.exists()) {
+         allCities = snapshot.val();
+      } else {
+         console.log("No data available");
       }
-   }));
-   const [virtualBusinesses, setVirtualBusinesses] = useState([]);
+   }).catch((error) => {
+      console.error(error);
+   });
+
+   const [baseVirtualBusinesses, setBaseVirtualBusinesses] = useState([]);
+   // use useEffect only when it is listening for changes made to the database(using the .on function)
+   // initializes both baseVirtualBusinesses and virtualBusiness
+   useEffect(() => {
+      allBusinessesRef.child('virtualBusinesses').on('value', (snapshot) => {
+         const cities = snapshot.val();
+         const list = [];
+         for (let id in cities) {
+            list.push({
+               id, ...{
+                  index: cities[id].ID,
+                  name: cities[id].NAME,
+                  type: cities[id].TYPE,
+                  city: cities[id].CITY,
+                  website: cities[id].WEBSITE,
+                  description: cities[id].DESCRIPTION,
+                  contactInfo: cities[id].CONTACT_INFO
+               }
+            });
+         }
+         console.log(list);
+         setBaseVirtualBusinesses(list);
+         setVirtualBusiness(list);
+      });
+   }, []);
+
+   const [virtualBusiness, setVirtualBusiness] = useState([]);
    const [currentPage, setCurrentPage] = useState(1);
    const [dropdownValue, setDropdownValue] = useState("default");
    const [businessesPerPage] = useState(10);
@@ -179,7 +206,7 @@ function ListBusiness() {
       return filteredSortedBusinesses;
    }
 
-   //Initializes the center object when the page loads and initializes the virtualBusinesses array
+   //Initializes the center object when the page loads
    useEffect(() => {
       async function fetchCenter() {
          try {
@@ -193,9 +220,8 @@ function ListBusiness() {
          }
       }
       fetchCenter();
-      setVirtualBusinesses(baseVirtualBusinesses);
       setCurrentPage(1);
-   }, [baseVirtualBusinesses]);
+   }, []);
 
    /**
     * This function executes certain functions depending what the target selectBox value is
@@ -204,20 +230,20 @@ function ListBusiness() {
     */
    const handleChange = (event) => {
       if (event.target.value === "nearestCity") {
-         setVirtualBusinesses(getNearestCityBusinesses());
+         setVirtualBusiness(getNearestCityBusinesses());
          setCurrentPage(1);
       }
       else if (event.target.value === "default") {
-         console.log(baseVirtualBusinesses)
-         setVirtualBusinesses(baseVirtualBusinesses);
+         console.log(baseVirtualBusinesses);
+         setVirtualBusiness(baseVirtualBusinesses);
          setCurrentPage(1);
       }
       else if (event.target.value === "alphaAscending") {
-         setVirtualBusinesses(sortAlphaAscending(baseVirtualBusinesses));
+         setVirtualBusiness(sortAlphaAscending(baseVirtualBusinesses));
          setCurrentPage(1);
       }
       else if (event.target.value === "alphaDescending") {
-         setVirtualBusinesses(sortAlphaDescending(baseVirtualBusinesses));
+         setVirtualBusiness(sortAlphaDescending(baseVirtualBusinesses));
          setCurrentPage(1);
       }
       console.log(event.target.value);
@@ -227,7 +253,8 @@ function ListBusiness() {
    //Get Current Businesses(10)
    const indexOfLastBusiness = currentPage * businessesPerPage;
    const indexOfFirstBusiness = indexOfLastBusiness - businessesPerPage;
-   const currentBusinesses = virtualBusinesses.slice(indexOfFirstBusiness, indexOfLastBusiness);
+   var currentBusinesses = [];
+   currentBusinesses = virtualBusiness.slice(indexOfFirstBusiness, indexOfLastBusiness);
 
    const paginate = pageNumber => setCurrentPage(pageNumber);
    const paginateIncrement = () => setCurrentPage(currentPage + 1);
@@ -235,8 +262,13 @@ function ListBusiness() {
 
    const pageNumbers = [];
 
-   for (let i = 1; i <= Math.ceil(virtualBusinesses.length / businessesPerPage); i++) {
+   for (let i = 1; i <= Math.ceil(virtualBusiness.length / businessesPerPage); i++) {
       pageNumbers.push(i);
+   }
+
+   // reverts a page number if the last item on a page is deleted
+   if (pageNumbers.length !== 0 && currentBusinesses.length === 0) {
+      setCurrentPage(currentPage - 1);
    }
 
    return (
@@ -258,7 +290,11 @@ function ListBusiness() {
                   <option value="nearestCity">Nearest City</option>
                </select>
             </div>
-            <Business businesses={currentBusinesses} />
+            <ul data-testid="business-list" className="BusinessList">
+               {currentBusinesses.map(
+                  (business) => (<Business business={business} key={business.id}></Business>)
+               )}
+            </ul>
             <div data-testid="pagination" className="pagination">
                <ul>
                   <li>
@@ -284,7 +320,7 @@ function ListBusiness() {
                   <li>
                      <a
                         data-testid="pagination-next"
-                        className={(currentPage < Math.ceil(virtualBusinesses.length / businessesPerPage)) ? 'button' : 'button inactive'}
+                        className={(currentPage < Math.ceil(baseVirtualBusinesses.length / businessesPerPage)) ? 'button' : 'button inactive'}
                         onClick={paginateIncrement}
                         href="/list-business/#"
                      >

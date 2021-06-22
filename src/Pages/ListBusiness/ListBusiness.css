@@ -35,8 +35,32 @@
   padding: 12px; /* Add some padding */
 }
 
-.Business a{
+.Business a {
    text-decoration: none;
+}
+
+.Business button {
+   border: none;
+   background-color: Transparent;
+}
+
+.title-icon {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.Business img {
+   height: 50px;
+   margin-bottom: -20px;
+   padding: 5.75px 4.5px 5px 5px;
+}
+
+.Business img:hover {
+   background-color: lightgray;
+   transition: background-color .3s;
+   border-radius: 100%;
+   cursor: pointer;
 }
 
 .pagination {
