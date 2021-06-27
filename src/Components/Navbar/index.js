@@ -56,7 +56,7 @@ function Navbar() {
                      onClick={closeMobileMenu}
                   >
                      Home
-                            </Link>
+                  </Link>
                </li>
                <li className='nav-item'>
                   <Link
@@ -65,7 +65,16 @@ function Navbar() {
                      onClick={closeMobileMenu}
                   >
                      Virtual Businesses Near Me
-                            </Link>
+                  </Link>
+               </li>
+               <li className='nav-item'>
+                  <Link
+                     to="/add-business"
+                     className='nav-links'
+                     onClick={closeMobileMenu}
+                  >
+                     Add a Business
+                  </Link>
                </li>
                {/* Mobile Find a Business Button */}
                <li>
@@ -76,7 +85,7 @@ function Navbar() {
                      data-testid='mobile-button'
                   >
                      Find a Business
-                            </Link>
+                  </Link>
                </li>
             </ul>
             {/* Desktop Find a Business Button */}

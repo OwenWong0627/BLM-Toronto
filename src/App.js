@@ -5,6 +5,7 @@ import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import Home from './Pages/Home';
 import ListBusiness from './Pages/ListBusiness';
+import AddBusiness from './Pages/AddBusiness';
 import FindBusiness from './Pages/FindBusiness';
 
 function App() {
@@ -20,6 +21,11 @@ function App() {
                <Route exact path="/list-business">
                   <Navbar />
                   <ListBusiness />
+                  <Footer />
+               </Route>
+               <Route exact path="/add-business">
+                  <Navbar />
+                  <AddBusiness />
                   <Footer />
                </Route>
                <Route exact path="/find-business">

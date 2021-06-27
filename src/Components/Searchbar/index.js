@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
  * The center prop allows the use-places-autocomplete API to give search results based on the user's location; it will give search results tailored to the user's location
  * The third prop name is just a class name for the css styling
  */
-function Searchbar({ panTo, center, className }) {
+function Searchbar({ panTo, center, className, maps, save }) {
    const {
       ready,
       value,
@@ -45,8 +45,13 @@ function Searchbar({ panTo, center, className }) {
                try {
                   const results = await getGeocode({ address });
                   const { lat, lng } = await getLatLng(results[0]);
-                  panTo({ lat, lng });
-                  console.log(lat, lng);
+                  if (maps) {
+                     panTo({ lat, lng });
+                     console.log(lat, lng);
+                  } else {
+                     save({ lat, lng, address });
+                     console.log(lat, lng);
+                  }
                }
                catch {
                   console.log("ERROR");
@@ -79,7 +84,7 @@ function Searchbar({ panTo, center, className }) {
  * propType Documentation
  */
 Searchbar.propTypes = {
-   panTo: PropTypes.func.isRequired,
+   // panTo: PropTypes.func.isRequired,
    center: PropTypes.object.isRequired,
    className: PropTypes.string.isRequired
 }

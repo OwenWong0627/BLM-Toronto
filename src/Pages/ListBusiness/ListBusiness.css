@@ -104,21 +104,6 @@ but it can still be accessed by other methods, like using keyboard */
    color: #aaafb4;
 }
 
-select {
-   -webkit-appearance: none;
-   -moz-appearance: none;
-   -ms-appearance: none;
-   appearance: none;
-   outline: 0;
-   box-shadow: none;
-   border: 0;
-   background: #CDCDCD;
-   background-image: none;
-}
-/* Remove IE arrow */
-select::-ms-expand {
-  display: none;
-}
 /* Custom Select */
 .select {
   position: relative;
@@ -133,6 +118,15 @@ select::-ms-expand {
 }
 .select-text{
    font-size: 25px;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   -ms-appearance: none;
+   appearance: none;
+   outline: 0;
+   box-shadow: none;
+   border: 0;
+   background: #CDCDCD;
+   background-image: none;
 }
 select {
   flex: 1;

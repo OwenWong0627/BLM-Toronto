@@ -122,18 +122,18 @@ function FindBusiness() {
 
    //The commented out items signify that there are currently no businesses in those categories in the database
    const [checkedItems, setCheckedItems] = useState({
-      "Art, Artists & Art Galleries": true,
-      "Education, Books & Black Authors": true,
-      "Business, Services & Technology": true,
-      "Doctors, Health & Fitness": true,
-      "Real Estate & Home Services": true,
+      "Art, Artists & Art Galleries": false,
+      "Education, Books & Black Authors": false,
+      "Business, Services & Technology": false,
+      "Doctors, Health & Fitness": false,
+      "Real Estate & Home Services": false,
       // "Shopping": false,
-      "Community & Faith Centers": true,
-      "Hair, Barbers & Beauty": true,
-      "Media, Events & Entertainment": true,
-      "Restaurants, Bakeries & Grocery": true,
+      "Community & Faith Centers": false,
+      "Hair, Barbers & Beauty": false,
+      "Media, Events & Entertainment": false,
+      "Restaurants, Bakeries & Grocery": false,
       // "Financial & Legal Services": false,
-      "Travel, Auto & Other Services": true
+      "Travel, Auto & Other Services": false
    });
 
    const checkboxes = [
@@ -161,7 +161,7 @@ function FindBusiness() {
       setCheckedItems({ ...checkedItems, [event.target.name]: event.target.checked });
    }
 
-   const [selectAll, setSelectAll] = useState(true);
+   const [selectAll, setSelectAll] = useState(false);
    /**
     * This function updates the CheckedItems array to either check/uncheck all the items in the array
     * @param {EventObject} event -
@@ -287,7 +287,7 @@ function FindBusiness() {
             </Link>
 
             <CenterToUser panTo={panTo} center={center} />
-            <Searchbar panTo={panTo} center={center} className={sidebar ? 'searchbar shifted' : 'searchbar'} />
+            <Searchbar panTo={panTo} center={center} className={sidebar ? 'searchbar shifted' : 'searchbar'} maps={true} />
 
             {(window.google !== undefined) && <GoogleMap
                mapContainerStyle={mapContainerStyle}
