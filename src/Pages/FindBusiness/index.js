@@ -114,7 +114,7 @@ function FindBusiness() {
                 setCenter(cntr);
             } catch (err) {
                 setCenter({ lat: 43.5601414, lng: -79.716 });
-                alert(err);
+                //  alert(err);
             }
         }
         fetchLocationData();
